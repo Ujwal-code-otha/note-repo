@@ -79,14 +79,46 @@ jobs:
           api-level: 30
           target: google_apis
           arch: x86_64
-          force-avd-creation: false
+          force-avd-creation: true
+          emulator-boot-timeout: 600
           emulator-options: -no-snapshot-load -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           script: |
+            echo "Waiting for emulator to be online via adb..."
+            adb wait-for-device
+            
+            echo "Checking sys.boot_completed..."
+            boot_completed=""
+            while [ "$boot_completed" != "1" ]; do
+              boot_completed=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r\n')
+              if [ "$boot_completed" != "1" ]; then
+                echo "Still booting (sys.boot_completed=$boot_completed)..."
+                sleep 5
+              fi
+            done
+            echo "Emulator is fully booted!"
+            
+            echo "Starting Appium server..."
             appium --log appium.log &
-            sleep 5
+            
+            echo "Waiting for Appium server to start..."
+            for i in {1..30}; do
+              if nc -z localhost 4723 || curl -s http://localhost:4723/status > /dev/null; then
+                echo "Appium server is up and running!"
+                break
+              fi
+              sleep 2
+            done
+            
             cd android_automation
             npm test
+
+      - name: Upload Appium server log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appium-log
+          path: appium.log
 
       - name: Upload Appium report
         if: always()

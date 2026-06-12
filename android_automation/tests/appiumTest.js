@@ -1,6 +1,6 @@
 /**
  * SmartNotes AI — Appium E2E Test Suite  (Comprehensive)
- * Device  : Motorola Moto G85 5G (ZA222XNCRG) · Android 16 · API 36
+ * Device  : Android Emulator (emulator-5554) · Android 11 · API 30
  * Appium  : v3.5.0   (path '/')
  * WDIO    : v8.46
  * Driver  : UiAutomator2 v7.6.1
@@ -180,20 +180,20 @@ const capabilities = {
 
 if (process.env.APPIUM_UDID) {
     capabilities['appium:udid'] = process.env.APPIUM_UDID;
-} else if (!process.env.CI) {
-    capabilities['appium:udid'] = 'ZA222XNCRG';
+} else {
+    capabilities['appium:udid'] = 'emulator-5554';
 }
 
 if (process.env.APPIUM_DEVICE_NAME) {
     capabilities['appium:deviceName'] = process.env.APPIUM_DEVICE_NAME;
-} else if (!process.env.CI) {
-    capabilities['appium:deviceName'] = 'moto g85 5G';
+} else {
+    capabilities['appium:deviceName'] = 'Android Emulator';
 }
 
 if (process.env.APPIUM_PLATFORM_VERSION) {
     capabilities['appium:platformVersion'] = process.env.APPIUM_PLATFORM_VERSION;
-} else if (!process.env.CI) {
-    capabilities['appium:platformVersion'] = '16';
+} else {
+    capabilities['appium:platformVersion'] = '11';
 }
 
 // FIX-1: Appium v3 uses path '/'
@@ -206,7 +206,7 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
     console.log('═══════════════════════════════════════════════════════════════════');
     console.log('  🤖  SmartNotes AI — Comprehensive Appium E2E Suite');
     console.log(`  📦  APK  → ${path.basename(apkPath)}`);
-    console.log(`  📱  Device → ZA222XNCRG (Moto G85 5G, Android 16)`);
+    console.log(`  📱  Device → ${capabilities['appium:udid']} (${capabilities['appium:deviceName']}, Android ${capabilities['appium:platformVersion']})`);
     console.log(`  📊  Report → ${path.basename(reportPath)}`);
     console.log('═══════════════════════════════════════════════════════════════════\n');
 
@@ -544,6 +544,16 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
             // Find all Switch elements, then match by checking which row contains "Dark Atmosphere".
             // UiScrollable first to ensure the row is visible.
             await scrollToText(driver, 'Dark Atmosphere', 3);
+            let darkToggle;
+            const switchSelectors = [
+                'android=new UiSelector().className("android.widget.Switch")',
+                'android=new UiSelector().className("android.widget.CompoundButton")',
+            ];
+            for (const sel of switchSelectors) {
+                try {
+                    const els = await driver.$$(sel);
+                    if (els.length >= 1) { darkToggle = els[0]; break; }
+                } catch (_) {}
             }
             if (darkToggle) {
                 await darkToggle.click();

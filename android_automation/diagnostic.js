@@ -22,18 +22,18 @@ const apkPath = path.resolve(__dirname, '../app/build/outputs/apk/debug/app-debu
             };
             if (process.env.APPIUM_UDID) {
                 caps['appium:udid'] = process.env.APPIUM_UDID;
-            } else if (!process.env.CI) {
-                caps['appium:udid'] = 'ZA222XNCRG';
+            } else {
+                caps['appium:udid'] = 'emulator-5554';
             }
             if (process.env.APPIUM_DEVICE_NAME) {
                 caps['appium:deviceName'] = process.env.APPIUM_DEVICE_NAME;
-            } else if (!process.env.CI) {
-                caps['appium:deviceName'] = 'moto g85 5G';
+            } else {
+                caps['appium:deviceName'] = 'Android Emulator';
             }
             if (process.env.APPIUM_PLATFORM_VERSION) {
                 caps['appium:platformVersion'] = process.env.APPIUM_PLATFORM_VERSION;
-            } else if (!process.env.CI) {
-                caps['appium:platformVersion'] = '16';
+            } else {
+                caps['appium:platformVersion'] = '11';
             }
             return caps;
         })()
