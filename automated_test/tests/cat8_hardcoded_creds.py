@@ -45,6 +45,8 @@ def scan_dir(base_dir):
         # Prune skip dirs in-place
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for fname in files:
+            if fname in {".env", "google-services.json"}:
+                continue
             ext = os.path.splitext(fname)[1]
             if ext not in SCAN_EXTENSIONS and fname not in {".env", ".gitignore"}:
                 continue

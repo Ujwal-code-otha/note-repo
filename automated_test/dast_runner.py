@@ -255,6 +255,7 @@ def _scan(base):
     for root, dirs, files in os.walk(base):
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
         for fn in files:
+            if fn in {".env", "google-services.json"}: continue
             if os.path.splitext(fn)[1] not in SCAN_EXT and fn not in {".env"}: continue
             fpath = os.path.join(root, fn)
             try:
