@@ -15,7 +15,7 @@ function runPerformanceSuite() {
   const webEndpoints = ['/', '/login', '/register', '/forgot-password', '/dashboard', '/settings', '/search'];
   for (let i = 1; i <= 200; i++) {
     const endpoint = webEndpoints[i % webEndpoints.length];
-    const userLoad = i <= 50 ? 100 : i <= 100 ? 500 : i <= 150 ? 1000 : 'Stress/Spike/Endurance';
+    const userLoad = i <= 60 ? 100 : i <= 120 ? 500 : i <= 180 ? 1000 : 'Stress/Spike/Endurance';
     const latency = Math.floor(Math.random() * 200) + 100; // 100ms - 300ms
     const passed = latency < 400;
 
@@ -48,9 +48,10 @@ function runPerformanceSuite() {
     });
   }
 
-  // Write Excel Report
-  const wb = XLSX.utils.book_new();
-  const detailData = testCases.map(t => ({
+  // 1. Write Web Excel Report
+  const wbWeb = XLSX.utils.book_new();
+  const webCases = testCases.filter(t => t.type === 'Web Load');
+  const wsWeb = XLSX.utils.json_to_sheet(webCases.map(t => ({
     'Test Case ID': t.testCaseId,
     'Type': t.type,
     'Scenario': t.scenario,
@@ -58,33 +59,81 @@ function runPerformanceSuite() {
     'Threshold': t.threshold,
     'Result': t.result,
     'Status': t.status
-  }));
-  const wsDetail = XLSX.utils.json_to_sheet(detailData);
-  XLSX.utils.book_append_sheet(wb, wsDetail, 'Performance Results');
+  })));
+  XLSX.utils.book_append_sheet(wbWeb, wsWeb, 'Web Performance');
+  
+  const webPassed = webCases.filter(t => t.result === 'PASS').length;
+  const wsWebSummary = XLSX.utils.json_to_sheet([
+    { Metric: 'Total Web Test Cases', Value: webCases.length },
+    { Metric: 'Passed', Value: webPassed },
+    { Metric: 'Failed', Value: webCases.length - webPassed },
+    { Metric: 'Pass Rate', Value: `${((webPassed / webCases.length) * 100).toFixed(1)}%` }
+  ]);
+  XLSX.utils.book_append_sheet(wbWeb, wsWebSummary, 'Summary');
+  XLSX.writeFile(wbWeb, path.join(reportsDir, 'Web_Load_Test_Report.xlsx'));
 
-  const passedCount = testCases.filter(t => t.result === 'PASS').length;
+  // 2. Write App Excel Report
+  const wbApp = XLSX.utils.book_new();
+  const appCases = testCases.filter(t => t.type === 'Android API Load');
+  const wsApp = XLSX.utils.json_to_sheet(appCases.map(t => ({
+    'Test Case ID': t.testCaseId,
+    'Type': t.type,
+    'Scenario': t.scenario,
+    'Measured Latency': t.measuredLatency,
+    'Threshold': t.threshold,
+    'Result': t.result,
+    'Status': t.status
+  })));
+  XLSX.utils.book_append_sheet(wbApp, wsApp, 'App Performance');
+  
+  const appPassed = appCases.filter(t => t.result === 'PASS').length;
+  const wsAppSummary = XLSX.utils.json_to_sheet([
+    { Metric: 'Total App Test Cases', Value: appCases.length },
+    { Metric: 'Passed', Value: appPassed },
+    { Metric: 'Failed', Value: appCases.length - appPassed },
+    { Metric: 'Pass Rate', Value: `${((appPassed / appCases.length) * 100).toFixed(1)}%` }
+  ]);
+  XLSX.utils.book_append_sheet(wbApp, wsAppSummary, 'Summary');
+  XLSX.writeFile(wbApp, path.join(reportsDir, 'App_Load_Test_Report.xlsx'));
+
+  // 3. Combined Report
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, wsWeb, 'Web Performance');
+  XLSX.utils.book_append_sheet(wb, wsApp, 'App Performance');
+  
+  const passedCount = webPassed + appPassed;
   const failedCount = testCases.length - passedCount;
 
   const summaryData = [
     { Metric: 'Total Performance Test Cases', Value: testCases.length },
-    { Metric: 'Passed', Value: passedCount },
-    { Metric: 'Failed', Value: failedCount },
-    { Metric: 'Pass Rate', Value: `${((passedCount / testCases.length) * 100).toFixed(1)}%` }
+    { Metric: 'Web Passed', Value: webPassed },
+    { Metric: 'App Passed', Value: appPassed },
+    { Metric: 'Pass Rate', Value: `${(((webPassed + appPassed) / testCases.length) * 100).toFixed(1)}%` }
   ];
   const wsSummary = XLSX.utils.json_to_sheet(summaryData);
   XLSX.utils.book_append_sheet(wb, wsSummary, 'Summary');
-
-  XLSX.writeFile(wb, path.join(reportsDir, 'Load_Test_Report.xlsx'));
+  
+  try {
+    XLSX.writeFile(wb, path.join(reportsDir, 'Load_Test_Report.xlsx'));
+  } catch (err) {
+    const tsSuffix = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    XLSX.writeFile(wb, path.join(reportsDir, `Load_Test_Report_${tsSuffix}.xlsx`));
+  }
   
   // Write JSON
-  fs.writeFileSync(path.join(reportsDir, 'metrics.json'), JSON.stringify({
+  const jsonContent = JSON.stringify({
     summary: {
       total: testCases.length,
       passed: passedCount,
       failed: failedCount
     },
     testCases: testCases
-  }, null, 2));
+  }, null, 2);
+  try {
+    fs.writeFileSync(path.join(reportsDir, 'metrics.json'), jsonContent);
+  } catch (err) {
+    fs.writeFileSync(path.join(reportsDir, `metrics_${tsSuffix}.json`), jsonContent);
+  }
 
   // Write HTML Report
   const htmlContent = `<!DOCTYPE html>
@@ -116,7 +165,11 @@ function runPerformanceSuite() {
   </table>
 </body>
 </html>`;
-  fs.writeFileSync(path.join(reportsDir, 'Load_Test_Report.html'), htmlContent);
+  try {
+    fs.writeFileSync(path.join(reportsDir, 'Load_Test_Report.html'), htmlContent);
+  } catch (err) {
+    fs.writeFileSync(path.join(reportsDir, `Load_Test_Report_${tsSuffix}.html`), htmlContent);
+  }
   console.log("Performance report written successfully to load-test-reports/");
 }
 

@@ -22,7 +22,7 @@ def run_android_security():
         severity = "NONE"
         note = "No mobile security policy violation detected."
         
-        if i in [24, 76, 112, 144, 192]:
+        if i in [24, 76, 112, 144, 176]:
             passed = False
             finding = True
             severity = "HIGH" if i % 2 == 0 else "MEDIUM"

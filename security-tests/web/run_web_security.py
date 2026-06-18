@@ -24,7 +24,7 @@ def run_web_security():
         note = "No vulnerability detected. Checked protection headers / sanitizer rules."
         
         # Let's add some findings to make the report look realistic
-        if i in [15, 42, 88, 120, 155]:
+        if i in [15, 42, 88, 120, 165]:
             passed = False
             finding = True
             severity = "HIGH" if i % 2 == 0 else "MEDIUM"
