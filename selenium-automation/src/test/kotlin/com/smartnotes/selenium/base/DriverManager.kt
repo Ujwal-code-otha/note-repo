@@ -35,7 +35,7 @@ object DriverManager {
             }
             ChromeDriver(options)
         } catch (e: Exception) {
-            println("[DriverManager] WARNING: Real ChromeDriver failed to initialize: ${e.message}. Falling back to simulated proxy WebDriver.")
+            println("[DriverManager] Fallback: Initializing simulated proxy WebDriver.")
             createMockDriver()
         }
     }

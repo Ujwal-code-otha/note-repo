@@ -77,6 +77,14 @@ jobs:
           path: android_automation/reports/android-appium-report_*.xlsx
           retention-days: 7
 
+      - name: Upload Appium Gradle Excel Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-Gradle-Excel-Report
+          path: appium-automation/build/reports/appium/*.xlsx
+          retention-days: 7
+
       - name: Upload Appium Gradle Test Reports
         if: always()
         uses: actions/upload-artifact@v4

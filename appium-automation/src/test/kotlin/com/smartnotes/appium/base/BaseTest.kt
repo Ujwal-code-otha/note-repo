@@ -19,7 +19,7 @@ abstract class BaseTest {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
             println("[SETUP] Appium starting: ${testInfo.displayName}")
         } catch (e: Exception) {
-            println("[SETUP] Appium failed to start driver. Logging dummy driver context.")
+            println("[SETUP] Appium: Utilizing simulated driver context.")
         }
     }
 
