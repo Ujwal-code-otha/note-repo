@@ -1,4 +1,4 @@
-name: Appium Local Self-Hosted Suite
+name: Appium Android E2E Suite
 
 on:
   push:
@@ -8,164 +8,79 @@ on:
   workflow_dispatch:
 
 jobs:
-  appium-local-tests:
-    name: Run Appium Tests on Local Windows Laptop
-    runs-on: [self-hosted, Windows, X64]
+  appium-tests:
+    name: Run Appium Android Tests
+    runs-on: self-hosted
+    defaults:
+      run:
+        shell: powershell
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Path and Verify Tools
-        shell: powershell
-        run: |
-          echo "=== Environment Setup ==="
-          $sdkPath = if ($env:ANDROID_HOME) { $env:ANDROID_HOME } else { "$env:USERPROFILE\AppData\Local\Android\Sdk" }
-          if (Test-Path $sdkPath) {
-            echo "Found Android SDK at: $sdkPath"
-            $env:PATH += ";$sdkPath\platform-tools;$sdkPath\emulator"
-            [Environment]::SetEnvironmentVariable("PATH", $env:PATH, [EnvironmentVariableTarget]::Process)
-            [Environment]::SetEnvironmentVariable("ANDROID_HOME", $sdkPath, [EnvironmentVariableTarget]::Process)
-          } else {
-            echo "Warning: Android SDK path not found at $sdkPath"
-          }
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
 
-          java -version
-          node -v
-          adb version
-          appium -v
-          echo "=== Setup Complete ==="
-
-      - name: Build Debug APK
-        shell: powershell
-        run: |
-          echo "=== Building APK ==="
-          .\gradlew.bat clean assembleDebug
-          if (!(Test-Path "app/build/outputs/apk/debug/app-debug.apk")) {
-            echo "Error: APK build failed or APK not found!"
-            exit 1
-          }
-          echo "=== APK Built Successfully ==="
-
-      - name: Detect and Start Device or Emulator
-        shell: powershell
-        run: |
-          echo "=== Device / Emulator Management ==="
-          $sdkPath = if ($env:ANDROID_HOME) { $env:ANDROID_HOME } else { "$env:USERPROFILE\AppData\Local\Android\Sdk" }
-          if (Test-Path $sdkPath) {
-            $env:PATH += ";$sdkPath\platform-tools;$sdkPath\emulator"
-          }
-
-          # Check if any device is already connected/running
-          $devices = adb devices
-          $activeDevice = $false
-          foreach ($line in $devices) {
-            if ($line -match "\bdevice\b" -and $line -notmatch "List of devices") {
-              $activeDevice = $true
-              echo "Active device found: $line"
-              break
-            }
-          }
-
-          if ($activeDevice) {
-            echo "Using already connected physical device or running emulator."
-          } else {
-            echo "No active device found. Attempting to start emulator..."
-            $avds = (emulator -list-avds 2>$null)
-            if ($avds) {
-              $targetAvd = $avds[0]
-              echo "Starting Emulator: $targetAvd"
-              Start-Process -FilePath "emulator" -ArgumentList "-avd $targetAvd" -WindowStyle Minimized
-            } else {
-              echo "Error: No Android Emulators (AVDs) found and no physical device connected!"
-              exit 1
-            }
-
-            echo "Waiting for device connection..."
-            adb wait-for-device
-
-            echo "Waiting for emulator boot completion..."
-            $timeout = 120
-            $elapsed = 0
-            while ($elapsed -lt $timeout) {
-              $boot = (adb shell getprop sys.boot_completed 2>$null)
-              if ($boot -and $boot.Trim() -eq "1") {
-                echo "Emulator booted successfully!"
-                break
-              }
-              Start-Sleep -Seconds 5
-              $elapsed += 5
-            }
-          }
-
-          echo "Verifying adb devices..."
-          $devicesFinal = adb devices
-          echo $devicesFinal
-          echo "=== Device Verification Complete ==="
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: android_automation/package.json
 
       - name: Start Appium Server
-        shell: powershell
         run: |
-          echo "=== Starting Appium Server ==="
-          # Stop any existing appium server on 4723
-          $portCheck = Get-NetTCPConnection -LocalPort 4723 -ErrorAction SilentlyContinue
-          if ($portCheck) {
-            echo "Port 4723 in use. Stopping existing processes..."
-            Stop-Process -Id $portCheck.OwningProcess -Force
-            Start-Sleep -Seconds 2
+          $conn = Get-NetTCPConnection -LocalPort 4723 -ErrorAction SilentlyContinue
+          if ($conn) {
+              Write-Host "Stopping existing process on port 4723..."
+              Stop-Process -Id $conn.OwningProcess -Force -ErrorAction SilentlyContinue
+              Start-Sleep -Seconds 2
           }
-
-          # Start Appium
-          $appiumProcess = Start-Process -FilePath "appium" -ArgumentList "--log-level info" -PassThru -NoNewWindow -RedirectStandardOutput "appium.log"
+          Write-Host "Starting Appium Server in background..."
+          Start-Process npx -ArgumentList "appium" -NoNewWindow
           Start-Sleep -Seconds 5
 
-          # Verify Appium server is listening
-          $check = Test-NetConnection -Port 4723 -ComputerName 127.0.0.1
-          if ($check.TcpTestSucceeded -ne $true) {
-            echo "Error: Appium Server failed to start on port 4723!"
-            Get-Content "appium.log" -Tail 20
-            exit 1
-          }
-          echo "Appium Server is up and listening on 127.0.0.1:4723"
-          echo "=== Appium Verification Complete ==="
-
-      - name: Install APK and Execute Tests
-        shell: powershell
+      - name: Build Debug APK
         run: |
-          echo "=== Executing Appium Tests ==="
-          $sdkPath = if ($env:ANDROID_HOME) { $env:ANDROID_HOME } else { "$env:USERPROFILE\AppData\Local\Android\Sdk" }
-          if (Test-Path $sdkPath) {
-            $env:PATH += ";$sdkPath\platform-tools"
-          }
-          adb install -r app/build/outputs/apk/debug/app-debug.apk
+          .\gradlew.bat :app:assembleDebug
+
+      - name: Install Android Automation Dependencies
+        working-directory: android_automation
+        run: npm ci
+
+      - name: Run Appium NodeJS Tests
+        working-directory: android_automation
+        run: npm test
+
+      - name: Run Appium Kotlin Gradle Tests
+        run: |
           .\gradlew.bat :appium-automation:test
-          echo "=== Tests Completed ==="
 
-      - name: Cleanup Processes
+      - name: Stop Appium Server
         if: always()
-        shell: powershell
         run: |
-          echo "=== Cleaning Up Processes ==="
-          $portCheck = Get-NetTCPConnection -LocalPort 4723 -ErrorAction SilentlyContinue
-          if ($portCheck) {
-            Stop-Process -Id $portCheck.OwningProcess -Force
+          $conn = Get-NetTCPConnection -LocalPort 4723 -ErrorAction SilentlyContinue
+          if ($conn) {
+              Write-Host "Stopping Appium Server..."
+              Stop-Process -Id $conn.OwningProcess -Force -ErrorAction SilentlyContinue
           }
-          echo "=== Cleanup Completed ==="
 
-      - name: Upload Test Reports
+      - name: Upload Appium JS Excel Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: appium-reports
-          path: |
-            appium-automation/build/reports/
-            appium-automation/build/allure-results/
-            appium.log
+          name: Appium-JS-Excel-Report
+          path: android_automation/reports/android-appium-report_*.xlsx
           retention-days: 7
 
-      - name: Upload Appium Excel Report
+      - name: Upload Appium Gradle Test Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Appium-Excel-Report
-          path: appium-automation/build/reports/appium/*.xlsx
+          name: Appium-Gradle-Test-Reports
+          path: appium-automation/build/reports/tests/test/
           retention-days: 7
