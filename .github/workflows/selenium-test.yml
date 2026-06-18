@@ -44,8 +44,9 @@ jobs:
       - name: Start Web Server
         working-directory: website
         run: |
-          npm run dev -- -H 127.0.0.1 > server.log 2>&1 &
+          RUNNER_TRACKING_ID="" npm run dev -- -H 127.0.0.1 > server.log 2>&1 &
           SERVER_PID=$!
+          echo "SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
           sleep 30
           if ! kill -0 $SERVER_PID 2>/dev/null; then
             echo "Server process died. Logs:"
@@ -79,6 +80,15 @@ jobs:
         env:
           TEST_EMAIL: 'shreyassatishkumar@gmail.com'
           TEST_PASSWORD: '123456'
+
+      - name: Stop Web Server
+        if: always()
+        run: |
+          if [ -n "$SERVER_PID" ]; then
+            echo "Stopping server process $SERVER_PID..."
+            kill $SERVER_PID 2>/dev/null || true
+            sleep 2
+          fi
 
       - name: Upload Server Logs
         if: always()
