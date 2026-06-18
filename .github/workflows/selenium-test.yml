@@ -35,10 +35,18 @@ jobs:
 
       - name: Start Web Server
         working-directory: website
-        run: npm run dev > server.log 2>&1 &
+        run: |
+          npm run dev > server.log 2>&1 &
+          SERVER_PID=$!
+          sleep 10
+          if ! kill -0 $SERVER_PID 2>/dev/null; then
+            echo "Server process died. Logs:"
+            cat server.log
+            exit 1
+          fi
 
       - name: Wait for Web Server (Port 3000)
-        run: npx wait-on http://localhost:3000 --timeout 120000
+        run: npx wait-on http://localhost:3000 --timeout 120000 --verbose
 
       - name: Run Selenium NodeJS Tests
         working-directory: website
