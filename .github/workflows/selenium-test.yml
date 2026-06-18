@@ -10,10 +10,7 @@ on:
 jobs:
   selenium-tests:
     name: Run Selenium Web Tests
-    runs-on: self-hosted
-    defaults:
-      run:
-        shell: powershell
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -32,23 +29,13 @@ jobs:
           cache: 'npm'
           cache-dependency-path: website/package.json
 
-      - name: Clean port 3000
-        run: |
-          $conn = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue
-          if ($conn) {
-              Write-Host "Stopping process on port 3000..."
-              Stop-Process -Id $conn.OwningProcess -Force -ErrorAction SilentlyContinue
-              Start-Sleep -Seconds 2
-          }
-
       - name: Install Website Dependencies
         working-directory: website
         run: npm ci
 
       - name: Start Web Server
-        run: |
-          Start-Process npm -ArgumentList "run dev" -NoNewWindow -WorkingDirectory website
-          Start-Sleep -Seconds 5
+        working-directory: website
+        run: npm run dev &
 
       - name: Wait for Web Server (Port 3000)
         run: npx wait-on http://localhost:3000 --timeout 60000
@@ -61,20 +48,14 @@ jobs:
           TEST_EMAIL: 'shreyassatishkumar@gmail.com'
           TEST_PASSWORD: '123456'
 
+      - name: Grant Execute Permission to Gradle Wrapper
+        run: chmod +x gradlew
+
       - name: Run Selenium Kotlin Gradle Tests
-        run: |
-          .\gradlew.bat :selenium-automation:test
+        run: ./gradlew :selenium-automation:test
         env:
           TEST_EMAIL: 'shreyassatishkumar@gmail.com'
           TEST_PASSWORD: '123456'
-
-      - name: Stop Web Server
-        if: always()
-        run: |
-          $conn = Get-NetTCPConnection -LocalPort 3000 -ErrorAction SilentlyContinue
-          if ($conn) {
-              Stop-Process -Id $conn.OwningProcess -Force -ErrorAction SilentlyContinue
-          }
 
       - name: Upload Selenium JS Excel Report
         if: always()
@@ -91,4 +72,5 @@ jobs:
           name: Selenium-Gradle-Test-Reports
           path: selenium-automation/build/reports/tests/test/
           retention-days: 7
+
 
