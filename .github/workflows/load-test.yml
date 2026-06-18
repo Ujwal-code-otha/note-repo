@@ -1,0 +1,38 @@
+name: Load Performance Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  load-tests:
+    name: Run Load and Performance Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: load-test-scripts/package.json
+
+      - name: Install Load Test Dependencies
+        working-directory: load-test-scripts
+        run: npm ci
+
+      - name: Run Load Tests
+        run: node load-test-scripts/run_perf_tests.js
+
+      - name: Upload Performance Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-reports
+          path: load-test-scripts/load-test-reports/
+          retention-days: 7

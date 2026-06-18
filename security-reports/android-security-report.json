@@ -1,0 +1,1502 @@
+[
+  {
+    "test_id": 1,
+    "name": "AND-SEC-001: Check mobile vulnerability for Hardcoded Secrets scenario 1",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 2,
+    "name": "AND-SEC-002: Check mobile vulnerability for Firebase Exposure scenario 2",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 3,
+    "name": "AND-SEC-003: Check mobile vulnerability for Insecure Storage scenario 3",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 4,
+    "name": "AND-SEC-004: Check mobile vulnerability for Root Detection scenario 4",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 5,
+    "name": "AND-SEC-005: Check mobile vulnerability for SSL Pinning scenario 5",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 6,
+    "name": "AND-SEC-006: Check mobile vulnerability for Network Security scenario 6",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 7,
+    "name": "AND-SEC-007: Check mobile vulnerability for WebView Security scenario 7",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 8,
+    "name": "AND-SEC-008: Check mobile vulnerability for Intent Security scenario 8",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 9,
+    "name": "AND-SEC-009: Check mobile vulnerability for Authentication Security scenario 9",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 10,
+    "name": "AND-SEC-010: Check mobile vulnerability for Authorization Security scenario 10",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 11,
+    "name": "AND-SEC-011: Check mobile vulnerability for Reverse Engineering Risks scenario 11",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 12,
+    "name": "AND-SEC-012: Check mobile vulnerability for OWASP Mobile Top 10 scenario 12",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 13,
+    "name": "AND-SEC-013: Check mobile vulnerability for APK Analysis scenario 13",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 14,
+    "name": "AND-SEC-014: Check mobile vulnerability for Hardcoded Secrets scenario 14",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 15,
+    "name": "AND-SEC-015: Check mobile vulnerability for Firebase Exposure scenario 15",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 16,
+    "name": "AND-SEC-016: Check mobile vulnerability for Insecure Storage scenario 16",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 17,
+    "name": "AND-SEC-017: Check mobile vulnerability for Root Detection scenario 17",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 18,
+    "name": "AND-SEC-018: Check mobile vulnerability for SSL Pinning scenario 18",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 19,
+    "name": "AND-SEC-019: Check mobile vulnerability for Network Security scenario 19",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 20,
+    "name": "AND-SEC-020: Check mobile vulnerability for WebView Security scenario 20",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 21,
+    "name": "AND-SEC-021: Check mobile vulnerability for Intent Security scenario 21",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 22,
+    "name": "AND-SEC-022: Check mobile vulnerability for Authentication Security scenario 22",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 23,
+    "name": "AND-SEC-023: Check mobile vulnerability for Authorization Security scenario 23",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 24,
+    "name": "AND-SEC-024: Check mobile vulnerability for Reverse Engineering Risks scenario 24",
+    "category": "Reverse Engineering Risks",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Insecure config/storage vulnerability found in category Reverse Engineering Risks.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 25,
+    "name": "AND-SEC-025: Check mobile vulnerability for OWASP Mobile Top 10 scenario 25",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 26,
+    "name": "AND-SEC-026: Check mobile vulnerability for APK Analysis scenario 26",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 27,
+    "name": "AND-SEC-027: Check mobile vulnerability for Hardcoded Secrets scenario 27",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 28,
+    "name": "AND-SEC-028: Check mobile vulnerability for Firebase Exposure scenario 28",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 29,
+    "name": "AND-SEC-029: Check mobile vulnerability for Insecure Storage scenario 29",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 30,
+    "name": "AND-SEC-030: Check mobile vulnerability for Root Detection scenario 30",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 31,
+    "name": "AND-SEC-031: Check mobile vulnerability for SSL Pinning scenario 31",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 32,
+    "name": "AND-SEC-032: Check mobile vulnerability for Network Security scenario 32",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 33,
+    "name": "AND-SEC-033: Check mobile vulnerability for WebView Security scenario 33",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 34,
+    "name": "AND-SEC-034: Check mobile vulnerability for Intent Security scenario 34",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 35,
+    "name": "AND-SEC-035: Check mobile vulnerability for Authentication Security scenario 35",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 36,
+    "name": "AND-SEC-036: Check mobile vulnerability for Authorization Security scenario 36",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 37,
+    "name": "AND-SEC-037: Check mobile vulnerability for Reverse Engineering Risks scenario 37",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 38,
+    "name": "AND-SEC-038: Check mobile vulnerability for OWASP Mobile Top 10 scenario 38",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 39,
+    "name": "AND-SEC-039: Check mobile vulnerability for APK Analysis scenario 39",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 40,
+    "name": "AND-SEC-040: Check mobile vulnerability for Hardcoded Secrets scenario 40",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 41,
+    "name": "AND-SEC-041: Check mobile vulnerability for Firebase Exposure scenario 41",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 42,
+    "name": "AND-SEC-042: Check mobile vulnerability for Insecure Storage scenario 42",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 43,
+    "name": "AND-SEC-043: Check mobile vulnerability for Root Detection scenario 43",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 44,
+    "name": "AND-SEC-044: Check mobile vulnerability for SSL Pinning scenario 44",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 45,
+    "name": "AND-SEC-045: Check mobile vulnerability for Network Security scenario 45",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 46,
+    "name": "AND-SEC-046: Check mobile vulnerability for WebView Security scenario 46",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 47,
+    "name": "AND-SEC-047: Check mobile vulnerability for Intent Security scenario 47",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 48,
+    "name": "AND-SEC-048: Check mobile vulnerability for Authentication Security scenario 48",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 49,
+    "name": "AND-SEC-049: Check mobile vulnerability for Authorization Security scenario 49",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 50,
+    "name": "AND-SEC-050: Check mobile vulnerability for Reverse Engineering Risks scenario 50",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 51,
+    "name": "AND-SEC-051: Check mobile vulnerability for OWASP Mobile Top 10 scenario 51",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 52,
+    "name": "AND-SEC-052: Check mobile vulnerability for APK Analysis scenario 52",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 53,
+    "name": "AND-SEC-053: Check mobile vulnerability for Hardcoded Secrets scenario 53",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 54,
+    "name": "AND-SEC-054: Check mobile vulnerability for Firebase Exposure scenario 54",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 55,
+    "name": "AND-SEC-055: Check mobile vulnerability for Insecure Storage scenario 55",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 56,
+    "name": "AND-SEC-056: Check mobile vulnerability for Root Detection scenario 56",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 57,
+    "name": "AND-SEC-057: Check mobile vulnerability for SSL Pinning scenario 57",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 58,
+    "name": "AND-SEC-058: Check mobile vulnerability for Network Security scenario 58",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 59,
+    "name": "AND-SEC-059: Check mobile vulnerability for WebView Security scenario 59",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 60,
+    "name": "AND-SEC-060: Check mobile vulnerability for Intent Security scenario 60",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 61,
+    "name": "AND-SEC-061: Check mobile vulnerability for Authentication Security scenario 61",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 62,
+    "name": "AND-SEC-062: Check mobile vulnerability for Authorization Security scenario 62",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 63,
+    "name": "AND-SEC-063: Check mobile vulnerability for Reverse Engineering Risks scenario 63",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 64,
+    "name": "AND-SEC-064: Check mobile vulnerability for OWASP Mobile Top 10 scenario 64",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 65,
+    "name": "AND-SEC-065: Check mobile vulnerability for APK Analysis scenario 65",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 66,
+    "name": "AND-SEC-066: Check mobile vulnerability for Hardcoded Secrets scenario 66",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 67,
+    "name": "AND-SEC-067: Check mobile vulnerability for Firebase Exposure scenario 67",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 68,
+    "name": "AND-SEC-068: Check mobile vulnerability for Insecure Storage scenario 68",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 69,
+    "name": "AND-SEC-069: Check mobile vulnerability for Root Detection scenario 69",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 70,
+    "name": "AND-SEC-070: Check mobile vulnerability for SSL Pinning scenario 70",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 71,
+    "name": "AND-SEC-071: Check mobile vulnerability for Network Security scenario 71",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 72,
+    "name": "AND-SEC-072: Check mobile vulnerability for WebView Security scenario 72",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 73,
+    "name": "AND-SEC-073: Check mobile vulnerability for Intent Security scenario 73",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 74,
+    "name": "AND-SEC-074: Check mobile vulnerability for Authentication Security scenario 74",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 75,
+    "name": "AND-SEC-075: Check mobile vulnerability for Authorization Security scenario 75",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 76,
+    "name": "AND-SEC-076: Check mobile vulnerability for Reverse Engineering Risks scenario 76",
+    "category": "Reverse Engineering Risks",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Insecure config/storage vulnerability found in category Reverse Engineering Risks.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 77,
+    "name": "AND-SEC-077: Check mobile vulnerability for OWASP Mobile Top 10 scenario 77",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 78,
+    "name": "AND-SEC-078: Check mobile vulnerability for APK Analysis scenario 78",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 79,
+    "name": "AND-SEC-079: Check mobile vulnerability for Hardcoded Secrets scenario 79",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 80,
+    "name": "AND-SEC-080: Check mobile vulnerability for Firebase Exposure scenario 80",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 81,
+    "name": "AND-SEC-081: Check mobile vulnerability for Insecure Storage scenario 81",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 82,
+    "name": "AND-SEC-082: Check mobile vulnerability for Root Detection scenario 82",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 83,
+    "name": "AND-SEC-083: Check mobile vulnerability for SSL Pinning scenario 83",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 84,
+    "name": "AND-SEC-084: Check mobile vulnerability for Network Security scenario 84",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 85,
+    "name": "AND-SEC-085: Check mobile vulnerability for WebView Security scenario 85",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 86,
+    "name": "AND-SEC-086: Check mobile vulnerability for Intent Security scenario 86",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 87,
+    "name": "AND-SEC-087: Check mobile vulnerability for Authentication Security scenario 87",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 88,
+    "name": "AND-SEC-088: Check mobile vulnerability for Authorization Security scenario 88",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 89,
+    "name": "AND-SEC-089: Check mobile vulnerability for Reverse Engineering Risks scenario 89",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 90,
+    "name": "AND-SEC-090: Check mobile vulnerability for OWASP Mobile Top 10 scenario 90",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 91,
+    "name": "AND-SEC-091: Check mobile vulnerability for APK Analysis scenario 91",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 92,
+    "name": "AND-SEC-092: Check mobile vulnerability for Hardcoded Secrets scenario 92",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 93,
+    "name": "AND-SEC-093: Check mobile vulnerability for Firebase Exposure scenario 93",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 94,
+    "name": "AND-SEC-094: Check mobile vulnerability for Insecure Storage scenario 94",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 95,
+    "name": "AND-SEC-095: Check mobile vulnerability for Root Detection scenario 95",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 96,
+    "name": "AND-SEC-096: Check mobile vulnerability for SSL Pinning scenario 96",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 97,
+    "name": "AND-SEC-097: Check mobile vulnerability for Network Security scenario 97",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 98,
+    "name": "AND-SEC-098: Check mobile vulnerability for WebView Security scenario 98",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 99,
+    "name": "AND-SEC-099: Check mobile vulnerability for Intent Security scenario 99",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 100,
+    "name": "AND-SEC-100: Check mobile vulnerability for Authentication Security scenario 100",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 101,
+    "name": "AND-SEC-101: Check mobile vulnerability for Authorization Security scenario 101",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 102,
+    "name": "AND-SEC-102: Check mobile vulnerability for Reverse Engineering Risks scenario 102",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 103,
+    "name": "AND-SEC-103: Check mobile vulnerability for OWASP Mobile Top 10 scenario 103",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 104,
+    "name": "AND-SEC-104: Check mobile vulnerability for APK Analysis scenario 104",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 105,
+    "name": "AND-SEC-105: Check mobile vulnerability for Hardcoded Secrets scenario 105",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 106,
+    "name": "AND-SEC-106: Check mobile vulnerability for Firebase Exposure scenario 106",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 107,
+    "name": "AND-SEC-107: Check mobile vulnerability for Insecure Storage scenario 107",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 108,
+    "name": "AND-SEC-108: Check mobile vulnerability for Root Detection scenario 108",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 109,
+    "name": "AND-SEC-109: Check mobile vulnerability for SSL Pinning scenario 109",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 110,
+    "name": "AND-SEC-110: Check mobile vulnerability for Network Security scenario 110",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 111,
+    "name": "AND-SEC-111: Check mobile vulnerability for WebView Security scenario 111",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 112,
+    "name": "AND-SEC-112: Check mobile vulnerability for Intent Security scenario 112",
+    "category": "Intent Security",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Insecure config/storage vulnerability found in category Intent Security.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 113,
+    "name": "AND-SEC-113: Check mobile vulnerability for Authentication Security scenario 113",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 114,
+    "name": "AND-SEC-114: Check mobile vulnerability for Authorization Security scenario 114",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 115,
+    "name": "AND-SEC-115: Check mobile vulnerability for Reverse Engineering Risks scenario 115",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 116,
+    "name": "AND-SEC-116: Check mobile vulnerability for OWASP Mobile Top 10 scenario 116",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 117,
+    "name": "AND-SEC-117: Check mobile vulnerability for APK Analysis scenario 117",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 118,
+    "name": "AND-SEC-118: Check mobile vulnerability for Hardcoded Secrets scenario 118",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 119,
+    "name": "AND-SEC-119: Check mobile vulnerability for Firebase Exposure scenario 119",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 120,
+    "name": "AND-SEC-120: Check mobile vulnerability for Insecure Storage scenario 120",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 121,
+    "name": "AND-SEC-121: Check mobile vulnerability for Root Detection scenario 121",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 122,
+    "name": "AND-SEC-122: Check mobile vulnerability for SSL Pinning scenario 122",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 123,
+    "name": "AND-SEC-123: Check mobile vulnerability for Network Security scenario 123",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 124,
+    "name": "AND-SEC-124: Check mobile vulnerability for WebView Security scenario 124",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 125,
+    "name": "AND-SEC-125: Check mobile vulnerability for Intent Security scenario 125",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 126,
+    "name": "AND-SEC-126: Check mobile vulnerability for Authentication Security scenario 126",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 127,
+    "name": "AND-SEC-127: Check mobile vulnerability for Authorization Security scenario 127",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 128,
+    "name": "AND-SEC-128: Check mobile vulnerability for Reverse Engineering Risks scenario 128",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 129,
+    "name": "AND-SEC-129: Check mobile vulnerability for OWASP Mobile Top 10 scenario 129",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 130,
+    "name": "AND-SEC-130: Check mobile vulnerability for APK Analysis scenario 130",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 131,
+    "name": "AND-SEC-131: Check mobile vulnerability for Hardcoded Secrets scenario 131",
+    "category": "Hardcoded Secrets",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 132,
+    "name": "AND-SEC-132: Check mobile vulnerability for Firebase Exposure scenario 132",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 133,
+    "name": "AND-SEC-133: Check mobile vulnerability for Insecure Storage scenario 133",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 134,
+    "name": "AND-SEC-134: Check mobile vulnerability for Root Detection scenario 134",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 135,
+    "name": "AND-SEC-135: Check mobile vulnerability for SSL Pinning scenario 135",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 136,
+    "name": "AND-SEC-136: Check mobile vulnerability for Network Security scenario 136",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 137,
+    "name": "AND-SEC-137: Check mobile vulnerability for WebView Security scenario 137",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 138,
+    "name": "AND-SEC-138: Check mobile vulnerability for Intent Security scenario 138",
+    "category": "Intent Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 139,
+    "name": "AND-SEC-139: Check mobile vulnerability for Authentication Security scenario 139",
+    "category": "Authentication Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 140,
+    "name": "AND-SEC-140: Check mobile vulnerability for Authorization Security scenario 140",
+    "category": "Authorization Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 141,
+    "name": "AND-SEC-141: Check mobile vulnerability for Reverse Engineering Risks scenario 141",
+    "category": "Reverse Engineering Risks",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 142,
+    "name": "AND-SEC-142: Check mobile vulnerability for OWASP Mobile Top 10 scenario 142",
+    "category": "OWASP Mobile Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 143,
+    "name": "AND-SEC-143: Check mobile vulnerability for APK Analysis scenario 143",
+    "category": "APK Analysis",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 144,
+    "name": "AND-SEC-144: Check mobile vulnerability for Hardcoded Secrets scenario 144",
+    "category": "Hardcoded Secrets",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Insecure config/storage vulnerability found in category Hardcoded Secrets.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 145,
+    "name": "AND-SEC-145: Check mobile vulnerability for Firebase Exposure scenario 145",
+    "category": "Firebase Exposure",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 146,
+    "name": "AND-SEC-146: Check mobile vulnerability for Insecure Storage scenario 146",
+    "category": "Insecure Storage",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 147,
+    "name": "AND-SEC-147: Check mobile vulnerability for Root Detection scenario 147",
+    "category": "Root Detection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 148,
+    "name": "AND-SEC-148: Check mobile vulnerability for SSL Pinning scenario 148",
+    "category": "SSL Pinning",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 149,
+    "name": "AND-SEC-149: Check mobile vulnerability for Network Security scenario 149",
+    "category": "Network Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  },
+  {
+    "test_id": 150,
+    "name": "AND-SEC-150: Check mobile vulnerability for WebView Security scenario 150",
+    "category": "WebView Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No mobile security policy violation detected.",
+    "timestamp": "2026-06-18T07:48:43.795823Z"
+  }
+]

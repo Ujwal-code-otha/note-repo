@@ -1,0 +1,2002 @@
+[
+  {
+    "test_id": 1,
+    "name": "WEB-SEC-001: Check vulnerability for XSS (Cross-Site Scripting) scenario 1",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 2,
+    "name": "WEB-SEC-002: Check vulnerability for CSRF scenario 2",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 3,
+    "name": "WEB-SEC-003: Check vulnerability for SSRF scenario 3",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 4,
+    "name": "WEB-SEC-004: Check vulnerability for Clickjacking scenario 4",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 5,
+    "name": "WEB-SEC-005: Check vulnerability for Session Fixation scenario 5",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 6,
+    "name": "WEB-SEC-006: Check vulnerability for Broken Authentication scenario 6",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 7,
+    "name": "WEB-SEC-007: Check vulnerability for Broken Access Control scenario 7",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 8,
+    "name": "WEB-SEC-008: Check vulnerability for Security Headers scenario 8",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 9,
+    "name": "WEB-SEC-009: Check vulnerability for Cookie Security scenario 9",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 10,
+    "name": "WEB-SEC-010: Check vulnerability for Input Validation scenario 10",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 11,
+    "name": "WEB-SEC-011: Check vulnerability for JWT Validation scenario 11",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 12,
+    "name": "WEB-SEC-012: Check vulnerability for API Security scenario 12",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 13,
+    "name": "WEB-SEC-013: Check vulnerability for OWASP Top 10 scenario 13",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 14,
+    "name": "WEB-SEC-014: Check vulnerability for SQL Injection scenario 14",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 15,
+    "name": "WEB-SEC-015: Check vulnerability for XSS (Cross-Site Scripting) scenario 15",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": false,
+    "finding": true,
+    "severity": "MEDIUM",
+    "note": "Vulnerability detected in category XSS (Cross-Site Scripting)! Missing strict validation rule.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 16,
+    "name": "WEB-SEC-016: Check vulnerability for CSRF scenario 16",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 17,
+    "name": "WEB-SEC-017: Check vulnerability for SSRF scenario 17",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 18,
+    "name": "WEB-SEC-018: Check vulnerability for Clickjacking scenario 18",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 19,
+    "name": "WEB-SEC-019: Check vulnerability for Session Fixation scenario 19",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 20,
+    "name": "WEB-SEC-020: Check vulnerability for Broken Authentication scenario 20",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 21,
+    "name": "WEB-SEC-021: Check vulnerability for Broken Access Control scenario 21",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 22,
+    "name": "WEB-SEC-022: Check vulnerability for Security Headers scenario 22",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 23,
+    "name": "WEB-SEC-023: Check vulnerability for Cookie Security scenario 23",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 24,
+    "name": "WEB-SEC-024: Check vulnerability for Input Validation scenario 24",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 25,
+    "name": "WEB-SEC-025: Check vulnerability for JWT Validation scenario 25",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 26,
+    "name": "WEB-SEC-026: Check vulnerability for API Security scenario 26",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 27,
+    "name": "WEB-SEC-027: Check vulnerability for OWASP Top 10 scenario 27",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 28,
+    "name": "WEB-SEC-028: Check vulnerability for SQL Injection scenario 28",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 29,
+    "name": "WEB-SEC-029: Check vulnerability for XSS (Cross-Site Scripting) scenario 29",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 30,
+    "name": "WEB-SEC-030: Check vulnerability for CSRF scenario 30",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 31,
+    "name": "WEB-SEC-031: Check vulnerability for SSRF scenario 31",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 32,
+    "name": "WEB-SEC-032: Check vulnerability for Clickjacking scenario 32",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 33,
+    "name": "WEB-SEC-033: Check vulnerability for Session Fixation scenario 33",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 34,
+    "name": "WEB-SEC-034: Check vulnerability for Broken Authentication scenario 34",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 35,
+    "name": "WEB-SEC-035: Check vulnerability for Broken Access Control scenario 35",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 36,
+    "name": "WEB-SEC-036: Check vulnerability for Security Headers scenario 36",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 37,
+    "name": "WEB-SEC-037: Check vulnerability for Cookie Security scenario 37",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 38,
+    "name": "WEB-SEC-038: Check vulnerability for Input Validation scenario 38",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 39,
+    "name": "WEB-SEC-039: Check vulnerability for JWT Validation scenario 39",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 40,
+    "name": "WEB-SEC-040: Check vulnerability for API Security scenario 40",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 41,
+    "name": "WEB-SEC-041: Check vulnerability for OWASP Top 10 scenario 41",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 42,
+    "name": "WEB-SEC-042: Check vulnerability for SQL Injection scenario 42",
+    "category": "SQL Injection",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Vulnerability detected in category SQL Injection! Missing strict validation rule.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 43,
+    "name": "WEB-SEC-043: Check vulnerability for XSS (Cross-Site Scripting) scenario 43",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 44,
+    "name": "WEB-SEC-044: Check vulnerability for CSRF scenario 44",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 45,
+    "name": "WEB-SEC-045: Check vulnerability for SSRF scenario 45",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 46,
+    "name": "WEB-SEC-046: Check vulnerability for Clickjacking scenario 46",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 47,
+    "name": "WEB-SEC-047: Check vulnerability for Session Fixation scenario 47",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 48,
+    "name": "WEB-SEC-048: Check vulnerability for Broken Authentication scenario 48",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 49,
+    "name": "WEB-SEC-049: Check vulnerability for Broken Access Control scenario 49",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 50,
+    "name": "WEB-SEC-050: Check vulnerability for Security Headers scenario 50",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 51,
+    "name": "WEB-SEC-051: Check vulnerability for Cookie Security scenario 51",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 52,
+    "name": "WEB-SEC-052: Check vulnerability for Input Validation scenario 52",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 53,
+    "name": "WEB-SEC-053: Check vulnerability for JWT Validation scenario 53",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 54,
+    "name": "WEB-SEC-054: Check vulnerability for API Security scenario 54",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 55,
+    "name": "WEB-SEC-055: Check vulnerability for OWASP Top 10 scenario 55",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 56,
+    "name": "WEB-SEC-056: Check vulnerability for SQL Injection scenario 56",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 57,
+    "name": "WEB-SEC-057: Check vulnerability for XSS (Cross-Site Scripting) scenario 57",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 58,
+    "name": "WEB-SEC-058: Check vulnerability for CSRF scenario 58",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 59,
+    "name": "WEB-SEC-059: Check vulnerability for SSRF scenario 59",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 60,
+    "name": "WEB-SEC-060: Check vulnerability for Clickjacking scenario 60",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 61,
+    "name": "WEB-SEC-061: Check vulnerability for Session Fixation scenario 61",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 62,
+    "name": "WEB-SEC-062: Check vulnerability for Broken Authentication scenario 62",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 63,
+    "name": "WEB-SEC-063: Check vulnerability for Broken Access Control scenario 63",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 64,
+    "name": "WEB-SEC-064: Check vulnerability for Security Headers scenario 64",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 65,
+    "name": "WEB-SEC-065: Check vulnerability for Cookie Security scenario 65",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 66,
+    "name": "WEB-SEC-066: Check vulnerability for Input Validation scenario 66",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 67,
+    "name": "WEB-SEC-067: Check vulnerability for JWT Validation scenario 67",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 68,
+    "name": "WEB-SEC-068: Check vulnerability for API Security scenario 68",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 69,
+    "name": "WEB-SEC-069: Check vulnerability for OWASP Top 10 scenario 69",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 70,
+    "name": "WEB-SEC-070: Check vulnerability for SQL Injection scenario 70",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 71,
+    "name": "WEB-SEC-071: Check vulnerability for XSS (Cross-Site Scripting) scenario 71",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 72,
+    "name": "WEB-SEC-072: Check vulnerability for CSRF scenario 72",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 73,
+    "name": "WEB-SEC-073: Check vulnerability for SSRF scenario 73",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 74,
+    "name": "WEB-SEC-074: Check vulnerability for Clickjacking scenario 74",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 75,
+    "name": "WEB-SEC-075: Check vulnerability for Session Fixation scenario 75",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 76,
+    "name": "WEB-SEC-076: Check vulnerability for Broken Authentication scenario 76",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 77,
+    "name": "WEB-SEC-077: Check vulnerability for Broken Access Control scenario 77",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 78,
+    "name": "WEB-SEC-078: Check vulnerability for Security Headers scenario 78",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 79,
+    "name": "WEB-SEC-079: Check vulnerability for Cookie Security scenario 79",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 80,
+    "name": "WEB-SEC-080: Check vulnerability for Input Validation scenario 80",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 81,
+    "name": "WEB-SEC-081: Check vulnerability for JWT Validation scenario 81",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 82,
+    "name": "WEB-SEC-082: Check vulnerability for API Security scenario 82",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 83,
+    "name": "WEB-SEC-083: Check vulnerability for OWASP Top 10 scenario 83",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 84,
+    "name": "WEB-SEC-084: Check vulnerability for SQL Injection scenario 84",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 85,
+    "name": "WEB-SEC-085: Check vulnerability for XSS (Cross-Site Scripting) scenario 85",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 86,
+    "name": "WEB-SEC-086: Check vulnerability for CSRF scenario 86",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 87,
+    "name": "WEB-SEC-087: Check vulnerability for SSRF scenario 87",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 88,
+    "name": "WEB-SEC-088: Check vulnerability for Clickjacking scenario 88",
+    "category": "Clickjacking",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Vulnerability detected in category Clickjacking! Missing strict validation rule.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 89,
+    "name": "WEB-SEC-089: Check vulnerability for Session Fixation scenario 89",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 90,
+    "name": "WEB-SEC-090: Check vulnerability for Broken Authentication scenario 90",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 91,
+    "name": "WEB-SEC-091: Check vulnerability for Broken Access Control scenario 91",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 92,
+    "name": "WEB-SEC-092: Check vulnerability for Security Headers scenario 92",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 93,
+    "name": "WEB-SEC-093: Check vulnerability for Cookie Security scenario 93",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 94,
+    "name": "WEB-SEC-094: Check vulnerability for Input Validation scenario 94",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 95,
+    "name": "WEB-SEC-095: Check vulnerability for JWT Validation scenario 95",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 96,
+    "name": "WEB-SEC-096: Check vulnerability for API Security scenario 96",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 97,
+    "name": "WEB-SEC-097: Check vulnerability for OWASP Top 10 scenario 97",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 98,
+    "name": "WEB-SEC-098: Check vulnerability for SQL Injection scenario 98",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 99,
+    "name": "WEB-SEC-099: Check vulnerability for XSS (Cross-Site Scripting) scenario 99",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 100,
+    "name": "WEB-SEC-100: Check vulnerability for CSRF scenario 100",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 101,
+    "name": "WEB-SEC-101: Check vulnerability for SSRF scenario 101",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 102,
+    "name": "WEB-SEC-102: Check vulnerability for Clickjacking scenario 102",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 103,
+    "name": "WEB-SEC-103: Check vulnerability for Session Fixation scenario 103",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 104,
+    "name": "WEB-SEC-104: Check vulnerability for Broken Authentication scenario 104",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 105,
+    "name": "WEB-SEC-105: Check vulnerability for Broken Access Control scenario 105",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 106,
+    "name": "WEB-SEC-106: Check vulnerability for Security Headers scenario 106",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 107,
+    "name": "WEB-SEC-107: Check vulnerability for Cookie Security scenario 107",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 108,
+    "name": "WEB-SEC-108: Check vulnerability for Input Validation scenario 108",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 109,
+    "name": "WEB-SEC-109: Check vulnerability for JWT Validation scenario 109",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 110,
+    "name": "WEB-SEC-110: Check vulnerability for API Security scenario 110",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 111,
+    "name": "WEB-SEC-111: Check vulnerability for OWASP Top 10 scenario 111",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 112,
+    "name": "WEB-SEC-112: Check vulnerability for SQL Injection scenario 112",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 113,
+    "name": "WEB-SEC-113: Check vulnerability for XSS (Cross-Site Scripting) scenario 113",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 114,
+    "name": "WEB-SEC-114: Check vulnerability for CSRF scenario 114",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 115,
+    "name": "WEB-SEC-115: Check vulnerability for SSRF scenario 115",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 116,
+    "name": "WEB-SEC-116: Check vulnerability for Clickjacking scenario 116",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 117,
+    "name": "WEB-SEC-117: Check vulnerability for Session Fixation scenario 117",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 118,
+    "name": "WEB-SEC-118: Check vulnerability for Broken Authentication scenario 118",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 119,
+    "name": "WEB-SEC-119: Check vulnerability for Broken Access Control scenario 119",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 120,
+    "name": "WEB-SEC-120: Check vulnerability for Security Headers scenario 120",
+    "category": "Security Headers",
+    "passed": false,
+    "finding": true,
+    "severity": "HIGH",
+    "note": "Vulnerability detected in category Security Headers! Missing strict validation rule.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 121,
+    "name": "WEB-SEC-121: Check vulnerability for Cookie Security scenario 121",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 122,
+    "name": "WEB-SEC-122: Check vulnerability for Input Validation scenario 122",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 123,
+    "name": "WEB-SEC-123: Check vulnerability for JWT Validation scenario 123",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 124,
+    "name": "WEB-SEC-124: Check vulnerability for API Security scenario 124",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 125,
+    "name": "WEB-SEC-125: Check vulnerability for OWASP Top 10 scenario 125",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 126,
+    "name": "WEB-SEC-126: Check vulnerability for SQL Injection scenario 126",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 127,
+    "name": "WEB-SEC-127: Check vulnerability for XSS (Cross-Site Scripting) scenario 127",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 128,
+    "name": "WEB-SEC-128: Check vulnerability for CSRF scenario 128",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 129,
+    "name": "WEB-SEC-129: Check vulnerability for SSRF scenario 129",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 130,
+    "name": "WEB-SEC-130: Check vulnerability for Clickjacking scenario 130",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 131,
+    "name": "WEB-SEC-131: Check vulnerability for Session Fixation scenario 131",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 132,
+    "name": "WEB-SEC-132: Check vulnerability for Broken Authentication scenario 132",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 133,
+    "name": "WEB-SEC-133: Check vulnerability for Broken Access Control scenario 133",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 134,
+    "name": "WEB-SEC-134: Check vulnerability for Security Headers scenario 134",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 135,
+    "name": "WEB-SEC-135: Check vulnerability for Cookie Security scenario 135",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 136,
+    "name": "WEB-SEC-136: Check vulnerability for Input Validation scenario 136",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 137,
+    "name": "WEB-SEC-137: Check vulnerability for JWT Validation scenario 137",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 138,
+    "name": "WEB-SEC-138: Check vulnerability for API Security scenario 138",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 139,
+    "name": "WEB-SEC-139: Check vulnerability for OWASP Top 10 scenario 139",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 140,
+    "name": "WEB-SEC-140: Check vulnerability for SQL Injection scenario 140",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 141,
+    "name": "WEB-SEC-141: Check vulnerability for XSS (Cross-Site Scripting) scenario 141",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 142,
+    "name": "WEB-SEC-142: Check vulnerability for CSRF scenario 142",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 143,
+    "name": "WEB-SEC-143: Check vulnerability for SSRF scenario 143",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 144,
+    "name": "WEB-SEC-144: Check vulnerability for Clickjacking scenario 144",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 145,
+    "name": "WEB-SEC-145: Check vulnerability for Session Fixation scenario 145",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 146,
+    "name": "WEB-SEC-146: Check vulnerability for Broken Authentication scenario 146",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 147,
+    "name": "WEB-SEC-147: Check vulnerability for Broken Access Control scenario 147",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 148,
+    "name": "WEB-SEC-148: Check vulnerability for Security Headers scenario 148",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 149,
+    "name": "WEB-SEC-149: Check vulnerability for Cookie Security scenario 149",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 150,
+    "name": "WEB-SEC-150: Check vulnerability for Input Validation scenario 150",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 151,
+    "name": "WEB-SEC-151: Check vulnerability for JWT Validation scenario 151",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 152,
+    "name": "WEB-SEC-152: Check vulnerability for API Security scenario 152",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 153,
+    "name": "WEB-SEC-153: Check vulnerability for OWASP Top 10 scenario 153",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 154,
+    "name": "WEB-SEC-154: Check vulnerability for SQL Injection scenario 154",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 155,
+    "name": "WEB-SEC-155: Check vulnerability for XSS (Cross-Site Scripting) scenario 155",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 156,
+    "name": "WEB-SEC-156: Check vulnerability for CSRF scenario 156",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 157,
+    "name": "WEB-SEC-157: Check vulnerability for SSRF scenario 157",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 158,
+    "name": "WEB-SEC-158: Check vulnerability for Clickjacking scenario 158",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 159,
+    "name": "WEB-SEC-159: Check vulnerability for Session Fixation scenario 159",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 160,
+    "name": "WEB-SEC-160: Check vulnerability for Broken Authentication scenario 160",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 161,
+    "name": "WEB-SEC-161: Check vulnerability for Broken Access Control scenario 161",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 162,
+    "name": "WEB-SEC-162: Check vulnerability for Security Headers scenario 162",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 163,
+    "name": "WEB-SEC-163: Check vulnerability for Cookie Security scenario 163",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 164,
+    "name": "WEB-SEC-164: Check vulnerability for Input Validation scenario 164",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 165,
+    "name": "WEB-SEC-165: Check vulnerability for JWT Validation scenario 165",
+    "category": "JWT Validation",
+    "passed": false,
+    "finding": true,
+    "severity": "MEDIUM",
+    "note": "Vulnerability detected in category JWT Validation! Missing strict validation rule.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 166,
+    "name": "WEB-SEC-166: Check vulnerability for API Security scenario 166",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 167,
+    "name": "WEB-SEC-167: Check vulnerability for OWASP Top 10 scenario 167",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 168,
+    "name": "WEB-SEC-168: Check vulnerability for SQL Injection scenario 168",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 169,
+    "name": "WEB-SEC-169: Check vulnerability for XSS (Cross-Site Scripting) scenario 169",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 170,
+    "name": "WEB-SEC-170: Check vulnerability for CSRF scenario 170",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 171,
+    "name": "WEB-SEC-171: Check vulnerability for SSRF scenario 171",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 172,
+    "name": "WEB-SEC-172: Check vulnerability for Clickjacking scenario 172",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 173,
+    "name": "WEB-SEC-173: Check vulnerability for Session Fixation scenario 173",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 174,
+    "name": "WEB-SEC-174: Check vulnerability for Broken Authentication scenario 174",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 175,
+    "name": "WEB-SEC-175: Check vulnerability for Broken Access Control scenario 175",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 176,
+    "name": "WEB-SEC-176: Check vulnerability for Security Headers scenario 176",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 177,
+    "name": "WEB-SEC-177: Check vulnerability for Cookie Security scenario 177",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 178,
+    "name": "WEB-SEC-178: Check vulnerability for Input Validation scenario 178",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 179,
+    "name": "WEB-SEC-179: Check vulnerability for JWT Validation scenario 179",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 180,
+    "name": "WEB-SEC-180: Check vulnerability for API Security scenario 180",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 181,
+    "name": "WEB-SEC-181: Check vulnerability for OWASP Top 10 scenario 181",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 182,
+    "name": "WEB-SEC-182: Check vulnerability for SQL Injection scenario 182",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 183,
+    "name": "WEB-SEC-183: Check vulnerability for XSS (Cross-Site Scripting) scenario 183",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 184,
+    "name": "WEB-SEC-184: Check vulnerability for CSRF scenario 184",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 185,
+    "name": "WEB-SEC-185: Check vulnerability for SSRF scenario 185",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 186,
+    "name": "WEB-SEC-186: Check vulnerability for Clickjacking scenario 186",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 187,
+    "name": "WEB-SEC-187: Check vulnerability for Session Fixation scenario 187",
+    "category": "Session Fixation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 188,
+    "name": "WEB-SEC-188: Check vulnerability for Broken Authentication scenario 188",
+    "category": "Broken Authentication",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 189,
+    "name": "WEB-SEC-189: Check vulnerability for Broken Access Control scenario 189",
+    "category": "Broken Access Control",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 190,
+    "name": "WEB-SEC-190: Check vulnerability for Security Headers scenario 190",
+    "category": "Security Headers",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 191,
+    "name": "WEB-SEC-191: Check vulnerability for Cookie Security scenario 191",
+    "category": "Cookie Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 192,
+    "name": "WEB-SEC-192: Check vulnerability for Input Validation scenario 192",
+    "category": "Input Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 193,
+    "name": "WEB-SEC-193: Check vulnerability for JWT Validation scenario 193",
+    "category": "JWT Validation",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 194,
+    "name": "WEB-SEC-194: Check vulnerability for API Security scenario 194",
+    "category": "API Security",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 195,
+    "name": "WEB-SEC-195: Check vulnerability for OWASP Top 10 scenario 195",
+    "category": "OWASP Top 10",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 196,
+    "name": "WEB-SEC-196: Check vulnerability for SQL Injection scenario 196",
+    "category": "SQL Injection",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 197,
+    "name": "WEB-SEC-197: Check vulnerability for XSS (Cross-Site Scripting) scenario 197",
+    "category": "XSS (Cross-Site Scripting)",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 198,
+    "name": "WEB-SEC-198: Check vulnerability for CSRF scenario 198",
+    "category": "CSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 199,
+    "name": "WEB-SEC-199: Check vulnerability for SSRF scenario 199",
+    "category": "SSRF",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  },
+  {
+    "test_id": 200,
+    "name": "WEB-SEC-200: Check vulnerability for Clickjacking scenario 200",
+    "category": "Clickjacking",
+    "passed": true,
+    "finding": false,
+    "severity": "NONE",
+    "note": "No vulnerability detected. Checked protection headers / sanitizer rules.",
+    "timestamp": "2026-06-18T09:14:00.575241Z"
+  }
+]
