@@ -49,7 +49,7 @@ function runPerformanceSuite() {
   }
 
   // Write Excel Report
-  const wb = XLSX.book_new();
+  const wb = XLSX.utils.book_new();
   const detailData = testCases.map(t => ({
     'Test Case ID': t.testCaseId,
     'Type': t.type,
@@ -59,8 +59,8 @@ function runPerformanceSuite() {
     'Result': t.result,
     'Status': t.status
   }));
-  const wsDetail = XLSX.json_to_sheet(detailData);
-  XLSX.book_append_sheet(wb, wsDetail, 'Performance Results');
+  const wsDetail = XLSX.utils.json_to_sheet(detailData);
+  XLSX.utils.book_append_sheet(wb, wsDetail, 'Performance Results');
 
   const passedCount = testCases.filter(t => t.result === 'PASS').length;
   const failedCount = testCases.length - passedCount;
@@ -71,8 +71,8 @@ function runPerformanceSuite() {
     { Metric: 'Failed', Value: failedCount },
     { Metric: 'Pass Rate', Value: `${((passedCount / testCases.length) * 100).toFixed(1)}%` }
   ];
-  const wsSummary = XLSX.json_to_sheet(summaryData);
-  XLSX.book_append_sheet(wb, wsSummary, 'Summary');
+  const wsSummary = XLSX.utils.json_to_sheet(summaryData);
+  XLSX.utils.book_append_sheet(wb, wsSummary, 'Summary');
 
   XLSX.writeFile(wb, path.join(reportsDir, 'Load_Test_Report.xlsx'));
   
