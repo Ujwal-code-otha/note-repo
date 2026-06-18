@@ -1,0 +1,59 @@
+name: Kotlin Selenium Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: website/package.json
+
+      - name: Install Website Dependencies
+        working-directory: website
+        run: npm ci
+
+      - name: Start Web Server
+        working-directory: website
+        run: npm run dev &
+
+      - name: Wait for Web Server (Port 3000)
+        run: |
+          npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Grant Execute Permission to Gradle Wrapper
+        run: chmod +x gradlew
+
+      - name: Run Kotlin Selenium Tests
+        run: ./gradlew :selenium-automation:test
+        env:
+          HEADLESS: 'true'
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selenium-test-reports
+          path: |
+            selenium-automation/build/reports/
+            selenium-automation/build/allure-results/
+          retention-days: 7

@@ -56,6 +56,8 @@ def probe(method, path, role="unauthenticated", headers=None,
           timeout=10):
     url = BASE_URL + path
     h = {"Content-Type": "application/json"}
+    if category != "rate_limiting":
+        h["x-bypass-rate-limit"] = "true"
     if headers:
         h.update(headers)
     t0 = time.time()

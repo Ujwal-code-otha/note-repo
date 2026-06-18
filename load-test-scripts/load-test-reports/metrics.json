@@ -1,0 +1,212 @@
+{
+  "summary": {
+    "total": 25,
+    "passed": 23,
+    "failed": 2,
+    "passPercentage": 92,
+    "status": "FAIL",
+    "timestamp": "2026-06-18T04:35:57.789Z"
+  },
+  "testCases": [
+    {
+      "testCase": "Landing Page - Performance Score",
+      "category": "Performance",
+      "measuredValue": "95%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Landing Page - Accessibility Score",
+      "category": "Accessibility",
+      "measuredValue": "98%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Landing Page - Best Practices Score",
+      "category": "Best Practices",
+      "measuredValue": "93%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Landing Page - SEO Score",
+      "category": "SEO",
+      "measuredValue": "100%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Landing Page - First Contentful Paint (FCP)",
+      "category": "Performance",
+      "measuredValue": "850 ms",
+      "threshold": "<= 2000 ms",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Login Page - Performance Score",
+      "category": "Performance",
+      "measuredValue": "92%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Login Page - Accessibility Score",
+      "category": "Accessibility",
+      "measuredValue": "95%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Login Page - Best Practices Score",
+      "category": "Best Practices",
+      "measuredValue": "90%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Login Page - SEO Score",
+      "category": "SEO",
+      "measuredValue": "95%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Login Page - First Contentful Paint (FCP)",
+      "category": "Performance",
+      "measuredValue": "1100 ms",
+      "threshold": "<= 2000 ms",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Registration Page - Performance Score",
+      "category": "Performance",
+      "measuredValue": "91%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Registration Page - Accessibility Score",
+      "category": "Accessibility",
+      "measuredValue": "96%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Registration Page - Best Practices Score",
+      "category": "Best Practices",
+      "measuredValue": "92%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Registration Page - SEO Score",
+      "category": "SEO",
+      "measuredValue": "95%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Registration Page - First Contentful Paint (FCP)",
+      "category": "Performance",
+      "measuredValue": "1150 ms",
+      "threshold": "<= 2000 ms",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Forgot Password Page - Performance Score",
+      "category": "Performance",
+      "measuredValue": "94%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Forgot Password Page - Accessibility Score",
+      "category": "Accessibility",
+      "measuredValue": "97%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Forgot Password Page - Best Practices Score",
+      "category": "Best Practices",
+      "measuredValue": "95%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Forgot Password Page - SEO Score",
+      "category": "SEO",
+      "measuredValue": "95%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Forgot Password Page - First Contentful Paint (FCP)",
+      "category": "Performance",
+      "measuredValue": "980 ms",
+      "threshold": "<= 2000 ms",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Dashboard Page - Performance Score",
+      "category": "Performance",
+      "measuredValue": "88%",
+      "threshold": ">= 90%",
+      "result": "FAIL",
+      "status": "FAILED"
+    },
+    {
+      "testCase": "Dashboard Page - Accessibility Score",
+      "category": "Accessibility",
+      "measuredValue": "92%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Dashboard Page - Best Practices Score",
+      "category": "Best Practices",
+      "measuredValue": "89%",
+      "threshold": ">= 90%",
+      "result": "FAIL",
+      "status": "FAILED"
+    },
+    {
+      "testCase": "Dashboard Page - SEO Score",
+      "category": "SEO",
+      "measuredValue": "90%",
+      "threshold": ">= 90%",
+      "result": "PASS",
+      "status": "PASSED"
+    },
+    {
+      "testCase": "Dashboard Page - First Contentful Paint (FCP)",
+      "category": "Performance",
+      "measuredValue": "1450 ms",
+      "threshold": "<= 2000 ms",
+      "result": "PASS",
+      "status": "PASSED"
+    }
+  ]
+}

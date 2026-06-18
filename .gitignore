@@ -9,3 +9,5 @@ local.properties
 out/
 .env.local
 .env
+~$*
+**/node_modules/

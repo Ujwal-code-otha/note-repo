@@ -1,0 +1,55 @@
+name: Lighthouse Load Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: website/package.json
+
+      - name: Install Website Dependencies
+        working-directory: website
+        run: npm ci
+
+      - name: Build Static Website
+        working-directory: website
+        run: |
+          npm run build
+          # Export to out folder if not handled automatically by next build
+          npx next export || true
+
+      - name: Install Lighthouse CI & Dependencies
+        run: |
+          npm install -g @lhci/cli@0.13.x
+          cd load-test-scripts
+          npm ci
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Generate Reports
+        working-directory: load-test-scripts
+        run: node generate-report.js
+
+      - name: Upload Load Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: load-test-reports
+          path: load-test-scripts/load-test-reports/
+          retention-days: 7

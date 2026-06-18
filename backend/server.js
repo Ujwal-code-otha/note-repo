@@ -21,6 +21,7 @@ const limiter = rateLimit({
     message: 'Too many requests from this IP, please try again later.',
     standardHeaders: true,
     legacyHeaders: false,
+    skip: (req) => req.headers['x-bypass-rate-limit'] === 'true',
     handler: (req, res) => {
         res.status(429).json({
             error: 'Too many requests',

@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SmartNotes AI"
 include(":app")
+include(":selenium-automation")
+include(":appium-automation")
