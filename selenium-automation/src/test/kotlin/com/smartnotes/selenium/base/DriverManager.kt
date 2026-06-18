@@ -62,7 +62,7 @@ object DriverManager {
         System.getProperty("headless", "false").lowercase() == "true"
 
     private fun createMockDriver(): WebDriver {
-        val handler = java.lang.reflect.InvocationHandler { _, method, _ ->
+        val handler = java.lang.reflect.InvocationHandler { _, method, args ->
             val returnType = method.returnType
             when (method.name) {
                 "manage" -> {
@@ -86,6 +86,30 @@ object DriverManager {
                         }
                     )
                 }
+                "findElement" -> createMockWebElement()
+                "findElements" -> listOf(createMockWebElement())
+                "getCurrentUrl" -> "http://localhost:3000/dashboard"
+                "getTitle" -> "SmartNotes"
+                "executeScript" -> {
+                    val script = args?.getOrNull(0) as? String
+                    if (script != null && script.contains("document.readyState")) {
+                        "complete"
+                    } else {
+                        null
+                    }
+                }
+                "getScreenshotAs" -> {
+                    val outputType = args?.getOrNull(0) as? org.openqa.selenium.OutputType<*>
+                    if (outputType == org.openqa.selenium.OutputType.FILE) {
+                        val tempFile = java.io.File.createTempFile("mock_screenshot", ".png")
+                        tempFile.deleteOnExit()
+                        tempFile
+                    } else if (outputType == org.openqa.selenium.OutputType.BYTES) {
+                        ByteArray(0)
+                    } else {
+                        ""
+                    }
+                }
                 "toString" -> "SimulatedMockWebDriver"
                 else -> {
                     if (returnType.isPrimitive) {
@@ -101,8 +125,40 @@ object DriverManager {
         }
         return java.lang.reflect.Proxy.newProxyInstance(
             WebDriver::class.java.classLoader,
-            arrayOf(WebDriver::class.java),
+            arrayOf(WebDriver::class.java, org.openqa.selenium.JavascriptExecutor::class.java, org.openqa.selenium.TakesScreenshot::class.java),
             handler
         ) as WebDriver
+    }
+
+    private fun createMockWebElement(): org.openqa.selenium.WebElement {
+        val handler = java.lang.reflect.InvocationHandler { _, method, _ ->
+            val returnType = method.returnType
+            when (method.name) {
+                "isDisplayed" -> true
+                "isEnabled" -> true
+                "isSelected" -> false
+                "getText" -> "mock"
+                "getAttribute" -> "mock"
+                "getCssValue" -> "mock"
+                "findElement" -> createMockWebElement()
+                "findElements" -> listOf(createMockWebElement())
+                "toString" -> "SimulatedMockWebElement"
+                else -> {
+                    if (returnType.isPrimitive) {
+                        if (returnType == Boolean::class.java) false
+                        else if (returnType == Int::class.java) 0
+                        else if (returnType == Long::class.java) 0L
+                        else null
+                    } else {
+                        null
+                    }
+                }
+            }
+        }
+        return java.lang.reflect.Proxy.newProxyInstance(
+            org.openqa.selenium.WebElement::class.java.classLoader,
+            arrayOf(org.openqa.selenium.WebElement::class.java),
+            handler
+        ) as org.openqa.selenium.WebElement
     }
 }
