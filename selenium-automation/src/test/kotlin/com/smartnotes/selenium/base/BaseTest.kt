@@ -1,9 +1,10 @@
 package com.smartnotes.selenium.base
 
-import com.smartnotes.selenium.utils.ExcelReporter
 import com.smartnotes.selenium.utils.ScreenshotUtils
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.TestInfo
 import org.junit.jupiter.api.extension.ExtendWith
 import org.openqa.selenium.WebDriver
@@ -13,20 +14,36 @@ import java.time.Duration
 @ExtendWith(RetryExtension::class, TestResultWatcher::class)
 abstract class BaseTest {
 
-    protected lateinit var driver: WebDriver
+    protected val driver: WebDriver
+        get() = sharedDriver ?: throw IllegalStateException("Driver not initialized")
+
     protected lateinit var wait: WebDriverWait
 
     companion object {
-        const val BASE_URL = "http://localhost:3000"
-        const val DEFAULT_TIMEOUT = 20L
-        const val SHORT_TIMEOUT = 5L
+        const val BASE_URL = "http://127.0.0.1:3001"
+        const val DEFAULT_TIMEOUT = 10L
+        const val SHORT_TIMEOUT = 3L
+
+        private var sharedDriver: WebDriver? = null
+
+        @BeforeAll
+        @JvmStatic
+        fun beforeAllClass() {
+            sharedDriver = DriverManager.createDriver()
+            sharedDriver?.manage()?.window()?.maximize()
+            sharedDriver?.manage()?.timeouts()?.implicitlyWait(Duration.ofSeconds(3))
+        }
+
+        @AfterAll
+        @JvmStatic
+        fun afterAllClass() {
+            sharedDriver?.quit()
+            sharedDriver = null
+        }
     }
 
     @BeforeEach
     fun setUp(testInfo: TestInfo) {
-        driver = DriverManager.createDriver()
-        driver.manage().window().maximize()
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5))
         wait = WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT))
         println("[SETUP] Starting: ${testInfo.displayName}")
     }
@@ -34,13 +51,11 @@ abstract class BaseTest {
     @AfterEach
     fun tearDown(testInfo: TestInfo) {
         val passed = testInfo.tags.contains("passed")
-        try {
-            if (!passed) {
+        if (!passed) {
+            try {
                 ScreenshotUtils.captureFailure(driver, testInfo.displayName)
-            }
-        } finally {
-            driver.quit()
-            println("[TEARDOWN] Completed: ${testInfo.displayName}")
+            } catch (e: Exception) {}
         }
+        println("[TEARDOWN] Completed: ${testInfo.displayName}")
     }
 }

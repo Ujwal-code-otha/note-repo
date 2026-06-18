@@ -88,7 +88,7 @@ object DriverManager {
                 }
                 "findElement" -> createMockWebElement()
                 "findElements" -> listOf(createMockWebElement())
-                "getCurrentUrl" -> "http://localhost:3000/dashboard"
+                "getCurrentUrl" -> "http://127.0.0.1:3001/dashboard"
                 "getTitle" -> "SmartNotes"
                 "executeScript" -> {
                     val script = args?.getOrNull(0) as? String

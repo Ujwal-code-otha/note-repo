@@ -9,12 +9,12 @@ class LoginPage(private val driver: WebDriver) {
     // Locators
     private val emailInput    = By.xpath("//input[@type='email']")
     private val passwordInput = By.xpath("//input[@type='password']")
-    private val signInButton  = By.xpath("//button[contains(text(),'Sign In') or contains(text(),'AUTHORIZE')]")
-    private val googleButton  = By.xpath("//button[contains(text(),'Continue with Google') or contains(text(),'Google')]")
-    private val forgotPassLink = By.xpath("//a[contains(text(),'Forgot') or contains(text(),'forgot')]")
-    private val signUpLink    = By.xpath("//a[contains(text(),'Sign Up') or contains(text(),'Register') or contains(text(),'Create')]")
+    private val signInButton  = By.xpath("//button[contains(.,'Sign In') or contains(.,'AUTHORIZE')]")
+    private val googleButton  = By.xpath("//button[contains(.,'Continue with Google') or contains(.,'Google')]")
+    private val forgotPassLink = By.xpath("//a[contains(.,'Forgot') or contains(.,'forgot')]")
+    private val signUpLink    = By.xpath("//a[contains(.,'Sign Up') or contains(.,'Register') or contains(.,'Create')]")
     private val errorMessage  = By.xpath("//*[contains(@class,'error') or contains(@class,'alert')]")
-    private val pageHeading   = By.xpath("//*[contains(text(),'Sign In') or contains(text(),'Login') or contains(text(),'Welcome')]")
+    private val pageHeading   = By.xpath("//*[contains(.,'Sign In') or contains(.,'Login') or contains(.,'Welcome')]")
 
     fun navigate(baseUrl: String) {
         driver.get("$baseUrl/login")
