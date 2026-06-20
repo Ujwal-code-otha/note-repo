@@ -12,15 +12,16 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class GeneratedSeleniumTests : BaseTest() {
 
-    private val category150 = { i: Int ->
+    private val category200 = { i: Int ->
         when {
             i <= 50  -> "Authentication"
             i <= 100 -> "Application"
-            else     -> "Security"
+            i <= 150 -> "Security"
+            else     -> "Performance"
         }
     }
 
-    private val scenario150 = { i: Int ->
+    private val scenario200 = { i: Int ->
         when (i % 12) {
             0    -> "Login"
             1    -> "Registration"
@@ -38,10 +39,10 @@ class GeneratedSeleniumTests : BaseTest() {
     }
 
     @TestFactory
-    fun generate150SeleniumTests(): Collection<DynamicTest> {
-        return (1..150).map { i ->
-            val cat      = category150(i)
-            val scenario = scenario150(i)
+    fun generate200SeleniumTests(): Collection<DynamicTest> {
+        return (1..200).map { i ->
+            val cat      = category200(i)
+            val scenario = scenario200(i)
             val name     = "Selenium_TestCase_${"%03d".format(i)}_${cat}_${scenario}"
 
             DynamicTest.dynamicTest(name) {
