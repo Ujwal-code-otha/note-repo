@@ -239,17 +239,26 @@ const capabilities = {
 
 const { execSync } = require('child_process');
 function getConnectedDevice() {
-    try {
-        const adbPath = 'C:\\Users\\shrey\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe';
-        const output = execSync(`"${adbPath}" devices`).toString();
-        const lines = output.split('\n');
-        for (const line of lines) {
-            const parts = line.trim().split('\t');
-            if (parts.length === 2 && parts[1] === 'device') {
-                return parts[0];
+    // Try system adb first (Linux/macOS/CI), then fall back to Windows local path
+    const adbCandidates = [
+        'adb',  // on PATH (Linux, macOS, GitHub Actions)
+        'C:\\Users\\shrey\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe', // Windows local
+    ];
+    for (const adbPath of adbCandidates) {
+        try {
+            const cmd = adbPath.includes(' ') || adbPath.endsWith('.exe')
+                ? `"${adbPath}" devices`
+                : `${adbPath} devices`;
+            const output = execSync(cmd, { timeout: 5000 }).toString();
+            const lines = output.split('\n');
+            for (const line of lines) {
+                const parts = line.trim().split('\t');
+                if (parts.length === 2 && parts[1] === 'device') {
+                    return parts[0];
+                }
             }
-        }
-    } catch (_) {}
+        } catch (_) {}
+    }
     return null;
 }
 

@@ -1,0 +1,180 @@
+name: 🤖 Android Emulator E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Cancel in-progress runs when a new commit is pushed
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android-emulator-tests:
+    name: Run E2E Tests on Android Emulator
+    # Ubuntu runners on GitHub support KVM hardware acceleration for Android emulators
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────────
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      # ── 2. Java 17 ───────────────────────────────────────────────────────────
+      - name: ☕ Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+          cache: 'gradle'
+
+      # ── 3. Node.js ───────────────────────────────────────────────────────────
+      - name: 🟢 Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: android_automation/package.json
+
+      # ── 4. Enable KVM for hardware acceleration ───────────────────────────
+      - name: ⚡ Enable KVM Hardware Acceleration
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          ls -la /dev/kvm
+
+      # ── 5. Android SDK cache ─────────────────────────────────────────────────
+      - name: 📦 Cache Android SDK
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-api30-${{ runner.os }}-${{ hashFiles('app/build.gradle.kts') }}
+          restore-keys: |
+            avd-api30-${{ runner.os }}-
+
+      # ── 6. Grant Gradle wrapper permission ───────────────────────────────────
+      - name: 🔑 Grant Execute Permission to Gradlew
+        run: chmod +x gradlew
+
+      # ── 7. Build the debug APK ────────────────────────────────────────────────
+      - name: 🏗️ Build Debug APK
+        run: ./gradlew :app:assembleDebug --no-daemon --stacktrace
+        env:
+          GRADLE_OPTS: "-Dorg.gradle.daemon=false -Xmx4g"
+
+      # ── 8. Upload APK as artifact ─────────────────────────────────────────────
+      - name: 📤 Upload Debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 7
+
+      # ── 9. Install Appium + UiAutomator2 driver ───────────────────────────────
+      - name: 📱 Install Appium & UiAutomator2 Driver
+        working-directory: android_automation
+        run: |
+          npm ci
+          # Install Appium globally so it is on PATH
+          npm install -g appium@3.5.0
+          # Install UiAutomator2 driver (required for Android automation)
+          appium driver install uiautomator2
+          echo "✅ Appium $(appium --version) installed"
+          echo "✅ Installed drivers:"
+          appium driver list --installed
+
+      # ── 10. Create & Boot Android AVD then run tests ─────────────────────────
+      #    Uses reactivecircus/android-emulator-runner which:
+      #      • Creates the AVD with the requested API level
+      #      • Boots it with KVM acceleration
+      #      • Waits until the system is fully ready
+      #      • Runs your script, then tears down the emulator
+      - name: 🤖 Start Android Emulator & Run Appium Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30          # Android 11 — matches your test config
+          target: google_apis    # Needed for Google Play / GMS services
+          arch: x86_64           # Fastest on GitHub runners
+          profile: pixel_4
+          avd-name: test_avd
+          force-avd-creation: false
+          emulator-options: >
+            -no-snapshot-save
+            -no-window
+            -gpu swiftshader_indirect
+            -noaudio
+            -no-boot-anim
+            -camera-back none
+          disable-animations: true
+          # Script runs AFTER the emulator is fully booted
+          script: |
+            echo "══════════════════════════════════════════════════"
+            echo "  📱 Emulator booted — verifying ADB connection"
+            echo "══════════════════════════════════════════════════"
+            adb devices
+            adb shell getprop ro.build.version.release
+
+            echo ""
+            echo "══════════════════════════════════════════════════"
+            echo "  🚀 Starting Appium Server on port 4723"
+            echo "══════════════════════════════════════════════════"
+            appium --port 4723 --base-path '/' --log-level warn &
+            APPIUM_PID=$!
+            sleep 8
+
+            # Verify Appium is accepting connections
+            curl -s http://127.0.0.1:4723/status | head -c 200 || echo "Appium status check (may still be starting)"
+            echo ""
+
+            echo "══════════════════════════════════════════════════"
+            echo "  🧪 Running Appium E2E Test Suite"
+            echo "══════════════════════════════════════════════════"
+            cd android_automation
+            APPIUM_UDID=emulator-5554 \
+            APPIUM_DEVICE_NAME="Android Emulator" \
+            APPIUM_PLATFORM_VERSION="11" \
+            node tests/appiumTest.js
+
+            echo ""
+            echo "══════════════════════════════════════════════════"
+            echo "  🛑 Stopping Appium Server"
+            echo "══════════════════════════════════════════════════"
+            kill $APPIUM_PID 2>/dev/null || true
+
+      # ── 11. Upload Test Reports ───────────────────────────────────────────────
+      - name: 📊 Upload Appium Excel Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-E2E-Excel-Report
+          path: android_automation/reports/android-appium-report_*.xlsx
+          retention-days: 30
+
+      - name: 📸 Upload Test Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-Test-Screenshots
+          path: android_automation/reports/screenshots/
+          retention-days: 14
+
+      # ── 12. Summary ───────────────────────────────────────────────────────────
+      - name: 📝 Write Job Summary
+        if: always()
+        run: |
+          echo "## 🤖 Android Emulator E2E Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Item | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Android API Level | 30 (Android 11) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Device Profile | Pixel 4 |" >> $GITHUB_STEP_SUMMARY
+          echo "| Appium Version | 3.5.0 |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Suite | SmartNotes AI — 100 E2E Test Cases |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 Download the Excel report from the **Artifacts** section above." >> $GITHUB_STEP_SUMMARY
