@@ -35,8 +35,8 @@ jobs:
           echo "$sdkRoot\emulator"       >> $env:GITHUB_PATH
           echo "$sdkRoot\tools\bin"      >> $env:GITHUB_PATH
 
-          # Create local.properties (it is gitignored, so we recreate it here)
-          $localProps = "sdk.dir=$($sdkRoot -replace '\\','\\\\')"
+          # Create local.properties using forward slashes (Android SDK accepts both)
+          $localProps = "sdk.dir=C:/Users/shrey/AppData/Local/Android/Sdk"
           Write-Host "Writing local.properties: $localProps"
           Set-Content -Path local.properties -Value $localProps
           Get-Content local.properties
@@ -49,9 +49,9 @@ jobs:
           & $adb devices
           $devices = & $adb devices | Select-String "emulator"
           if (-not $devices) {
-            Write-Host "⚠️  No emulator detected — tests will use mock driver"
+            Write-Host "[WARN] No emulator detected - tests will use mock driver"
           } else {
-            Write-Host "✅ Emulator found: $devices"
+            Write-Host "[OK] Emulator found: $devices"
           }
 
       # ── Java & Node ───────────────────────────────────────────────────────────
