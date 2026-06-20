@@ -14,10 +14,12 @@ class SettingsTests : BaseTest() {
 
     @BeforeEach
     fun loginAndInit() {
-        val loginPage = LoginPage(driver)
-        loginPage.navigate(BASE_URL)
-        loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
         settingsPage = SettingsPage(driver)
+        if (!driver.currentUrl.contains("/dashboard") && !driver.currentUrl.contains("/settings")) {
+            val loginPage = LoginPage(driver)
+            loginPage.navigate(BASE_URL)
+            loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
+        }
     }
 
     @Test fun test01_verifyProfileNameInput() {

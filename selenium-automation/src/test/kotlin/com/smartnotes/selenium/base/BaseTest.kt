@@ -20,7 +20,7 @@ abstract class BaseTest {
     protected lateinit var wait: WebDriverWait
 
     companion object {
-        const val BASE_URL = "http://127.0.0.1:3001"
+        const val BASE_URL = "http://127.0.0.1:3000"
         const val DEFAULT_TIMEOUT = 10L
         const val SHORT_TIMEOUT = 3L
 

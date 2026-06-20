@@ -14,10 +14,12 @@ class NotesCreationTests : BaseTest() {
 
     @BeforeEach
     fun loginAndInit() {
-        val loginPage = LoginPage(driver)
-        loginPage.navigate(BASE_URL)
-        loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
         notesPage = NotesPage(driver)
+        if (!driver.currentUrl.contains("/dashboard") && !driver.currentUrl.contains("/notes")) {
+            val loginPage = LoginPage(driver)
+            loginPage.navigate(BASE_URL)
+            loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
+        }
     }
 
     @Test fun test01_verifyTitleField() {

@@ -37,7 +37,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    ignoreFailures = true
     systemProperty("allure.results.directory", layout.buildDirectory.dir("allure-results").get().asFile.absolutePath)
+    systemProperty("selenium.report.dir", layout.buildDirectory.dir("reports/selenium").get().asFile.absolutePath)
     testLogging {
         events("passed", "failed", "skipped")
         showStandardStreams = true

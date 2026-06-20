@@ -14,12 +14,13 @@ class DashboardTests : BaseTest() {
 
     @BeforeEach
     fun loginAndNavigate() {
-        val loginPage = LoginPage(driver)
-        loginPage.navigate(BASE_URL)
-        loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
         dashboardPage = DashboardPage(driver)
-        // Try to wait or ignore if offline
-        try { dashboardPage.waitForLoad() } catch(e: Exception) {}
+        if (!driver.currentUrl.contains("/dashboard")) {
+            val loginPage = LoginPage(driver)
+            loginPage.navigate(BASE_URL)
+            loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
+            try { dashboardPage.waitForLoad() } catch(e: Exception) {}
+        }
     }
 
     @Test fun test01_verifyUrl() {

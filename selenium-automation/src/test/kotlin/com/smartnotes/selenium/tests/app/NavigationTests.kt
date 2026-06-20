@@ -14,10 +14,12 @@ class NavigationTests : BaseTest() {
 
     @BeforeEach
     fun loginAndInit() {
-        val loginPage = LoginPage(driver)
-        loginPage.navigate(BASE_URL)
-        loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
         navPage = NavigationPage(driver)
+        if (!driver.currentUrl.contains("/dashboard") && !driver.currentUrl.contains("/settings") && !driver.currentUrl.contains("/profile")) {
+            val loginPage = LoginPage(driver)
+            loginPage.navigate(BASE_URL)
+            loginPage.login(TestData.TEST_EMAIL, TestData.TEST_PASSWORD)
+        }
     }
 
     @Test fun test01_verifyHomeLinkVisible() {
