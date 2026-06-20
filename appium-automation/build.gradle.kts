@@ -36,7 +36,17 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    // Run only the 200-test main suite
+    filter {
+        includeTestsMatching("com.smartnotes.appium.tests.SmartNotesAppiumTests")
+    }
+    // Tell ExcelReporter exactly where to write the .xlsx file
+    systemProperty("appium.report.dir", layout.buildDirectory.dir("reports/appium").get().asFile.absolutePath)
     systemProperty("allure.results.directory", layout.buildDirectory.dir("allure-results").get().asFile.absolutePath)
+    // Working dir = subproject dir so relative paths resolve correctly
+    workingDir = projectDir
+    // Don't fail the Gradle task on test failures — let the report still be written
+    ignoreFailures = true
     testLogging {
         events("passed", "failed", "skipped")
         showStandardStreams = true

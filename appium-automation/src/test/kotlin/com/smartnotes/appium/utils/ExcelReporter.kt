@@ -22,7 +22,9 @@ data class TestRecord(
 object ExcelReporter {
 
     private val records = CopyOnWriteArrayList<TestRecord>()
-    private val reportDir = File("build/reports/appium").also { it.mkdirs() }
+    private val reportDir = File(
+        System.getProperty("appium.report.dir") ?: "build/reports/appium"
+    ).also { it.mkdirs() }
 
     fun addRecord(record: TestRecord) {
         records.add(record)

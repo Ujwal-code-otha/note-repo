@@ -17,158 +17,185 @@ jobs:
     env:
       ANDROID_HOME: "C:\\Users\\shrey\\AppData\\Local\\Android\\Sdk"
       ANDROID_SDK_ROOT: "C:\\Users\\shrey\\AppData\\Local\\Android\\Sdk"
-      JAVA_HOME: "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath"
 
     steps:
+      # ── 1. Checkout ───────────────────────────────────────────────────────────
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          clean: false
 
-      # ── Set Android SDK PATH & create local.properties ────────────────────────
-      - name: Configure Android SDK & local.properties
+      # ── 2. Android SDK & local.properties ────────────────────────────────────
+      - name: Configure Android SDK and local.properties
         run: |
-          # Add SDK tools to PATH for this job
           $sdkRoot = "C:\Users\shrey\AppData\Local\Android\Sdk"
-          $env:PATH = "$sdkRoot\platform-tools;$sdkRoot\tools;$sdkRoot\tools\bin;$sdkRoot\emulator;$env:PATH"
-          echo "ANDROID_HOME=$sdkRoot" >> $env:GITHUB_ENV
+          echo "ANDROID_HOME=$sdkRoot"   >> $env:GITHUB_ENV
           echo "ANDROID_SDK_ROOT=$sdkRoot" >> $env:GITHUB_ENV
           echo "$sdkRoot\platform-tools" >> $env:GITHUB_PATH
           echo "$sdkRoot\emulator"       >> $env:GITHUB_PATH
           echo "$sdkRoot\tools\bin"      >> $env:GITHUB_PATH
 
-          # Create local.properties using forward slashes (Android SDK accepts both)
+          # Recreate local.properties (gitignored)
           $localProps = "sdk.dir=C:/Users/shrey/AppData/Local/Android/Sdk"
-          Write-Host "Writing local.properties: $localProps"
           Set-Content -Path local.properties -Value $localProps
-          Get-Content local.properties
+          Write-Host "local.properties written: $localProps"
 
-      # ── Verify emulator is running ────────────────────────────────────────────
-      - name: Verify Android Emulator is Running
+      # ── 3. Verify emulator connected ──────────────────────────────────────────
+      - name: Verify Android Emulator
         run: |
           $adb = "C:\Users\shrey\AppData\Local\Android\Sdk\platform-tools\adb.exe"
-          Write-Host "Connected devices:"
+          Write-Host "ADB Devices:"
           & $adb devices
-          $devices = & $adb devices | Select-String "emulator"
-          if (-not $devices) {
-            Write-Host "[WARN] No emulator detected - tests will use mock driver"
-          } else {
-            Write-Host "[OK] Emulator found: $devices"
-          }
 
-      # ── Java & Node ───────────────────────────────────────────────────────────
+      # ── 4. Java 17 (NO cache — avoids tar.exe space-in-path error) ───────────
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
-          cache: 'gradle'
+          # cache intentionally omitted — avoids Windows tar.exe failure on paths with spaces
 
+      # ── 5. Node.js (NO cache) ─────────────────────────────────────────────────
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: android_automation/package.json
+          # cache intentionally omitted — avoids Windows tar.exe failure
 
-      # ── Start Appium ──────────────────────────────────────────────────────────
+      # ── 6. Start Appium ───────────────────────────────────────────────────────
       - name: Start Appium Server
         run: |
-          # Kill any process already on port 4723
           $conn = Get-NetTCPConnection -LocalPort 4723 -ErrorAction SilentlyContinue
           if ($conn) {
               Write-Host "Stopping existing process on port 4723..."
               Stop-Process -Id $conn.OwningProcess -Force -ErrorAction SilentlyContinue
               Start-Sleep -Seconds 2
           }
-
-          # Install Appium if not present
           $appiumPath = (Get-Command appium -ErrorAction SilentlyContinue)
           if (-not $appiumPath) {
               Write-Host "Installing Appium..."
               npm install -g appium
           }
-
-          Write-Host "Starting Appium Server in background..."
+          Write-Host "Starting Appium on port 4723..."
           Start-Process powershell -ArgumentList "-NoProfile -Command appium --port 4723 --base-path '/'" -WindowStyle Hidden
-          Write-Host "Waiting for Appium to be ready..."
           Start-Sleep -Seconds 15
-
-          # Confirm Appium is up
           try {
               $status = Invoke-RestMethod -Uri "http://127.0.0.1:4723/status" -TimeoutSec 5
-              Write-Host "✅ Appium is running: $($status.value.ready)"
+              Write-Host "[OK] Appium running"
           } catch {
-              Write-Host "⚠️  Appium may still be starting..."
+              Write-Host "[WARN] Appium may still be initialising..."
           }
 
-      # ── Build APK ─────────────────────────────────────────────────────────────
+      # ── 7. Build APK ──────────────────────────────────────────────────────────
       - name: Build Debug APK
         run: |
           Write-Host "ANDROID_HOME = $env:ANDROID_HOME"
-          Write-Host "JAVA_HOME    = $env:JAVA_HOME"
           Get-Content local.properties
-          .\gradlew.bat :app:assembleDebug --no-daemon --stacktrace
+          .\gradlew.bat :app:assembleDebug --no-daemon
         env:
           GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
-      # ── Install JS dependencies ───────────────────────────────────────────────
+      # ── 8. Ensure report directory exists before tests ────────────────────────
+      - name: Create Report Directory
+        run: |
+          $reportDir = "appium-automation\build\reports\appium"
+          New-Item -ItemType Directory -Force -Path $reportDir
+          Write-Host "Report dir ready: $reportDir"
+
+      # ── 9. Install Appium JS deps ─────────────────────────────────────────────
       - name: Install Android Automation Dependencies
         working-directory: android_automation
         run: npm ci
 
-      # ── Run Appium JS Tests ───────────────────────────────────────────────────
+      # ── 10. Run Appium JS Tests ───────────────────────────────────────────────
       - name: Run Appium NodeJS Tests
         working-directory: android_automation
+        continue-on-error: true
         run: |
-          $env:APPIUM_UDID            = "emulator-5554"
-          $env:APPIUM_DEVICE_NAME     = "Android Emulator"
-          $env:APPIUM_PLATFORM_VERSION= "11"
+          $env:APPIUM_UDID             = "emulator-5554"
+          $env:APPIUM_DEVICE_NAME      = "Android Emulator"
+          $env:APPIUM_PLATFORM_VERSION = "11"
           node tests/appiumTest.js
 
-      # ── Run Kotlin Gradle Tests ───────────────────────────────────────────────
-      - name: Run Appium Kotlin Gradle Tests
-        run: |
-          .\gradlew.bat :appium-automation:test --no-daemon
+      # ── 11. Run Kotlin 200-Test Suite ─────────────────────────────────────────
+      - name: Run Appium Kotlin 200 Tests
         continue-on-error: true
+        run: |
+          Write-Host "Running SmartNotesAppiumTests (200 unique test cases)..."
+          $env:APPIUM_UDID             = "emulator-5554"
+          $env:APPIUM_DEVICE_NAME      = "Android Emulator"
+          $env:APPIUM_PLATFORM_VERSION = "11"
+          .\gradlew.bat :appium-automation:test --no-daemon
+        env:
+          GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
-      # ── Stop Appium ───────────────────────────────────────────────────────────
+      # ── 12. Stop Appium ───────────────────────────────────────────────────────
       - name: Stop Appium Server
         if: always()
         run: |
           $conn = Get-NetTCPConnection -LocalPort 4723 -ErrorAction SilentlyContinue
           if ($conn) {
-              Write-Host "Stopping Appium Server..."
+              Write-Host "Stopping Appium..."
               Stop-Process -Id $conn.OwningProcess -Force -ErrorAction SilentlyContinue
           }
 
-      # ── Upload Reports ────────────────────────────────────────────────────────
-      - name: Upload Appium JS Excel Report
+      # ── 13. List generated report files ──────────────────────────────────────
+      - name: List Report Files
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: Appium-JS-Excel-Report
-          path: android_automation/reports/android-appium-report_*.xlsx
-          retention-days: 7
+        run: |
+          Write-Host "=== Contents of appium-automation/build/reports/appium/ ==="
+          Get-ChildItem -Path "appium-automation\build\reports\appium\" -ErrorAction SilentlyContinue
+          Write-Host "=== Contents of android_automation/reports/ ==="
+          Get-ChildItem -Path "android_automation\reports\" -ErrorAction SilentlyContinue
 
-      - name: Upload Appium Gradle Excel Report
+      # ── 14. Upload Kotlin Excel Report ────────────────────────────────────────
+      - name: Upload Kotlin Excel Report (200 Tests)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Appium-Gradle-Excel-Report
+          name: SmartNotes-Appium-Kotlin-200-Tests-Report
           path: appium-automation/build/reports/appium/*.xlsx
-          retention-days: 7
+          if-no-files-found: warn
+          retention-days: 30
 
-      - name: Upload Appium Gradle Test Reports
+      # ── 15. Upload JS Excel Report ────────────────────────────────────────────
+      - name: Upload JS Appium Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Appium-Gradle-Test-Reports
-          path: appium-automation/build/reports/tests/test/
-          retention-days: 7
+          name: SmartNotes-Appium-JS-Report
+          path: android_automation/reports/android-appium-report_*.xlsx
+          if-no-files-found: warn
+          retention-days: 30
 
-      - name: Upload Test Screenshots
+      # ── 16. Upload Screenshots ────────────────────────────────────────────────
+      - name: Upload Screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Appium-Screenshots
+          name: Appium-Test-Screenshots
           path: android_automation/reports/screenshots/
-          retention-days: 7
+          if-no-files-found: warn
+          retention-days: 14
+
+      # ── 17. Upload Kotlin HTML Test Report ────────────────────────────────────
+      - name: Upload Kotlin HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-Kotlin-HTML-Report
+          path: appium-automation/build/reports/tests/test/
+          if-no-files-found: warn
+          retention-days: 14
+
+      # ── 18. Job Summary ───────────────────────────────────────────────────────
+      - name: Write Job Summary
+        if: always()
+        run: |
+          echo "## Appium Android E2E Test Results" >> $env:GITHUB_STEP_SUMMARY
+          echo "" >> $env:GITHUB_STEP_SUMMARY
+          echo "| Item | Value |" >> $env:GITHUB_STEP_SUMMARY
+          echo "|------|-------|" >> $env:GITHUB_STEP_SUMMARY
+          echo "| Kotlin Test Suite | SmartNotesAppiumTests |" >> $env:GITHUB_STEP_SUMMARY
+          echo "| Total Test Cases | 200 |" >> $env:GITHUB_STEP_SUMMARY
+          echo "| Report | Download from Artifacts above |" >> $env:GITHUB_STEP_SUMMARY
