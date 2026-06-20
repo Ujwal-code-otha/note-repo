@@ -14,9 +14,10 @@ class LoginTests : BaseTest() {
     @BeforeEach
     fun initPage() {
         try {
-            loginPage = LoginPage(driver)
+            val d = driver ?: return
+            loginPage = LoginPage(d)
         } catch (e: Exception) {
-            // driver not initialized
+            // driver not initialized — mock mode
         }
     }
 
