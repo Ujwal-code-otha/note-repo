@@ -1714,10 +1714,10 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
         // TC-99 — Suite Metrics Verification
         const t99 = new Date();
         console.log('\n[TC-99] Calculating suite metrics…');
-        const pass99 = records.filter(r => r.Status === 'PASS').length;
-        const warn99 = records.filter(r => r.Status === 'WARN').length;
-        const fail99 = records.filter(r => r.Status === 'FAIL').length;
-        const skip99 = records.filter(r => r.Status === 'SKIP').length;
+        const pass99 = records.filter(r => r.status === 'PASS').length;
+        const warn99 = records.filter(r => r.status === 'WARN').length;
+        const fail99 = records.filter(r => r.status === 'FAIL').length;
+        const skip99 = records.filter(r => r.status === 'SKIP').length;
         addRecord('TC-99 Suite Metrics Verification', fail99 === 0 ? 'PASS' : 'WARN', t99, new Date(),
             `Running total — PASS:${pass99} WARN:${warn99} FAIL:${fail99} SKIP:${skip99}`);
 
@@ -1736,10 +1736,10 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
         }
 
         // ── Suite Summary ──────────────────────────────────────────────────────
-        const finalPass = records.filter(r => r.Status === 'PASS').length;
-        const finalWarn = records.filter(r => r.Status === 'WARN').length;
-        const finalFail = records.filter(r => r.Status === 'FAIL').length;
-        const finalSkip = records.filter(r => r.Status === 'SKIP').length;
+        const finalPass = records.filter(r => r.status === 'PASS').length;
+        const finalWarn = records.filter(r => r.status === 'WARN').length;
+        const finalFail = records.filter(r => r.status === 'FAIL').length;
+        const finalSkip = records.filter(r => r.status === 'SKIP').length;
         addRecord('══ SUITE SUMMARY ══', finalFail === 0 ? 'PASS' : 'FAIL', suiteStart, new Date(),
             `350 TCs | PASS:${finalPass} | WARN:${finalWarn} | FAIL:${finalFail} | SKIP:${finalSkip}`);
 
