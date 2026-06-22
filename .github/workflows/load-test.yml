@@ -36,3 +36,11 @@ jobs:
           name: performance-reports
           path: load-test-scripts/load-test-reports/
           retention-days: 7
+
+      - name: Upload Load Test Cases Document
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Load-Test-350-Cases
+          path: load_test_350_test_cases.md
+          retention-days: 7
