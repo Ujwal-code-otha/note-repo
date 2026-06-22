@@ -95,14 +95,23 @@ jobs:
         env:
           GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
-      # ── 8. Ensure report directory exists before tests ────────────────────────
+      # ── 8. Set up Python for Excel Generation ─────────────────────────────────
+      - name: Set up Python for Excel Generation
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python Dependencies
+        run: pip install openpyxl
+
+      # ── 9. Ensure report directory exists before tests ────────────────────────
       - name: Create Report Directory
         run: |
           $reportDir = "appium-automation\build\reports\appium"
           New-Item -ItemType Directory -Force -Path $reportDir
           Write-Host "Report dir ready: $reportDir"
 
-      # ── 9. Install Appium JS deps ─────────────────────────────────────────────
+      # ── 10. Install Appium JS deps ─────────────────────────────────────────────
       - name: Install Android Automation Dependencies
         working-directory: android_automation
         run: npm ci
@@ -148,45 +157,12 @@ jobs:
           Write-Host "=== Contents of android_automation/reports/ ==="
           Get-ChildItem -Path "android_automation\reports\" -ErrorAction SilentlyContinue
 
-      # ── 13b. Generate Appium Test Cases Excel ────────────────────────────────
-      - name: Set up Python for Excel Generation
-        if: always()
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install Python Dependencies
-        if: always()
-        run: pip install openpyxl
-
-      - name: Generate Appium Excel Report Spec
-        if: always()
-        run: python generate_test_cases_excel.py
-
-      - name: Upload Appium Excel Report Spec
+      # ── 15. Upload Consolidated Styled Appium Excel Report ────────────────────
+      - name: Upload Consolidated Styled Appium Excel Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Appium-Test-Cases-Excel
-          path: appium_350_test_cases.xlsx
-          retention-days: 30
-
-      # ── 14. Upload Kotlin Excel Report ────────────────────────────────────────
-      - name: Upload Kotlin Excel Report (350 Tests)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: SmartNotes-Appium-Kotlin-350-Tests-Report
-          path: appium-automation/build/reports/appium/*.xlsx
-          if-no-files-found: warn
-          retention-days: 30
-
-      # ── 15. Upload JS Excel Report ────────────────────────────────────────────
-      - name: Upload JS Appium Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: SmartNotes-Appium-JS-Report
+          name: SmartNotes-Appium-E2E-Report
           path: android_automation/reports/android-appium-report_*.xlsx
           if-no-files-found: warn
           retention-days: 30

@@ -104,21 +104,7 @@ function runPerformanceSuite() {
   const wsSummary = XLSX.utils.json_to_sheet(summaryData);
   XLSX.utils.book_append_sheet(wb, wsSummary, 'Summary');
 
-  // Save the main workbook
-  XLSX.writeFile(wb, path.join(reportsDir, 'Load_Test_Report.xlsx'));
-  
-  // Write individual sheets for compatibility
-  const wbWeb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wbWeb, wsDetail, 'Web Performance');
-  XLSX.utils.book_append_sheet(wbWeb, wsSummary, 'Summary');
-  XLSX.writeFile(wbWeb, path.join(reportsDir, 'Web_Load_Test_Report.xlsx'));
-
-  const wbApp = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wbApp, wsDetail, 'App Performance');
-  XLSX.utils.book_append_sheet(wbApp, wsSummary, 'Summary');
-  XLSX.writeFile(wbApp, path.join(reportsDir, 'App_Load_Test_Report.xlsx'));
-
-  // Write JSON
+  // Write JSON first
   const jsonContent = JSON.stringify({
     summary: {
       total: testCases.length,
@@ -129,7 +115,34 @@ function runPerformanceSuite() {
     },
     testCases: testCases
   }, null, 2);
-  fs.writeFileSync(path.join(reportsDir, 'metrics.json'), jsonContent);
+  const jsonPath = path.join(reportsDir, 'metrics.json');
+  fs.writeFileSync(jsonPath, jsonContent);
+
+  // Generate styled reports using style_excel_report.py
+  try {
+    const { execSync } = require('child_process');
+    const pythonScript = path.join(__dirname, '..', 'style_excel_report.py');
+    
+    execSync(`python "${pythonScript}" "${jsonPath}" "${path.join(reportsDir, 'Load_Test_Report.xlsx')}" "SmartNotes AI - Load Performance Test Report"`, { stdio: 'inherit' });
+    execSync(`python "${pythonScript}" "${jsonPath}" "${path.join(reportsDir, 'Web_Load_Test_Report.xlsx')}" "SmartNotes AI - Web Load Performance Test Report"`, { stdio: 'inherit' });
+    execSync(`python "${pythonScript}" "${jsonPath}" "${path.join(reportsDir, 'App_Load_Test_Report.xlsx')}" "SmartNotes AI - App Load Performance Test Report"`, { stdio: 'inherit' });
+    console.log("📊 Styled Excel reports generated successfully via style_excel_report.py.");
+  } catch (e) {
+    console.error("Failed to run python styled excel report generator for load tests:", e);
+    
+    // Fallback: Save standard unstyled workbooks if python styling fails
+    XLSX.writeFile(wb, path.join(reportsDir, 'Load_Test_Report.xlsx'));
+    
+    const wbWeb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wbWeb, wsDetail, 'Web Performance');
+    XLSX.utils.book_append_sheet(wbWeb, wsSummary, 'Summary');
+    XLSX.writeFile(wbWeb, path.join(reportsDir, 'Web_Load_Test_Report.xlsx'));
+
+    const wbApp = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wbApp, wsDetail, 'App Performance');
+    XLSX.utils.book_append_sheet(wbApp, wsSummary, 'Summary');
+    XLSX.writeFile(wbApp, path.join(reportsDir, 'App_Load_Test_Report.xlsx'));
+  }
 
   // Write HTML Report
   const htmlContent = `<!DOCTYPE html>
