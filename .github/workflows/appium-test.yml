@@ -163,7 +163,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: SmartNotes-Appium-E2E-Report
-          path: android_automation/reports/android-appium-report_*.xlsx
+          path: |
+            android_automation/reports/android-appium-report_*.xlsx
+            appium-automation/build/reports/appium/SmartNotes_Appium_Report_*.xlsx
           if-no-files-found: warn
           retention-days: 30
 
