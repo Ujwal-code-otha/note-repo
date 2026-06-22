@@ -37,6 +37,28 @@ jobs:
           path: load-test-scripts/load-test-reports/
           retention-days: 7
 
+      - name: Set up Python for Excel Generation
+        if: always()
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python Dependencies
+        if: always()
+        run: pip install openpyxl
+
+      - name: Generate Load Excel Report Spec
+        if: always()
+        run: python generate_test_cases_excel.py
+
+      - name: Upload Load Excel Report Spec
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Load-Test-Cases-Excel
+          path: load_test_350_test_cases.xlsx
+          retention-days: 30
+
       - name: Upload Load Test Cases Document
         if: always()
         uses: actions/upload-artifact@v4

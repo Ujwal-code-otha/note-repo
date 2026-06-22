@@ -148,6 +148,29 @@ jobs:
           Write-Host "=== Contents of android_automation/reports/ ==="
           Get-ChildItem -Path "android_automation\reports\" -ErrorAction SilentlyContinue
 
+      # ── 13b. Generate Appium Test Cases Excel ────────────────────────────────
+      - name: Set up Python for Excel Generation
+        if: always()
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python Dependencies
+        if: always()
+        run: pip install openpyxl
+
+      - name: Generate Appium Excel Report Spec
+        if: always()
+        run: python generate_test_cases_excel.py
+
+      - name: Upload Appium Excel Report Spec
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-Test-Cases-Excel
+          path: appium_350_test_cases.xlsx
+          retention-days: 30
+
       # ── 14. Upload Kotlin Excel Report ────────────────────────────────────────
       - name: Upload Kotlin Excel Report (350 Tests)
         if: always()
