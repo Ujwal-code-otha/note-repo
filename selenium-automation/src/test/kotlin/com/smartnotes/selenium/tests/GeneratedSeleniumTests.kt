@@ -39,8 +39,8 @@ class GeneratedSeleniumTests : BaseTest() {
     }
 
     @TestFactory
-    fun generate200SeleniumTests(): Collection<DynamicTest> {
-        return (1..200).map { i ->
+    fun generate350SeleniumTests(): Collection<DynamicTest> {
+        return (1..350).map { i ->
             val cat      = category200(i)
             val scenario = scenario200(i)
             val name     = "Selenium_TestCase_${"%03d".format(i)}_${cat}_${scenario}"

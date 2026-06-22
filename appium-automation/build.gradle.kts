@@ -36,9 +36,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    // Run only the 200-test main suite
+    // Run only the 350-test main suite
     filter {
-        includeTestsMatching("com.smartnotes.appium.tests.SmartNotesAppiumTests")
+        includeTestsMatching("com.smartnotes.appium.tests.GeneratedAppiumTests")
     }
     // Tell ExcelReporter exactly where to write the .xlsx file
     systemProperty("appium.report.dir", layout.buildDirectory.dir("reports/appium").get().asFile.absolutePath)

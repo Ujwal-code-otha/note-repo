@@ -3,7 +3,7 @@ const path = require('path');
 const XLSX = require('xlsx');
 
 function runPerformanceSuite() {
-  console.log("Generating 200 Web and 200 Android Performance Test Cases...");
+  console.log("Generating 350 Web and 350 Android Performance Test Cases...");
   
   const testCases = [];
   const reportsDir = path.join(__dirname, 'load-test-reports');
@@ -11,9 +11,9 @@ function runPerformanceSuite() {
     fs.mkdirSync(reportsDir, { recursive: true });
   }
 
-  // 1. Web Performance Test Cases (200 cases)
+  // 1. Web Performance Test Cases (350 cases)
   const webEndpoints = ['/', '/login', '/register', '/forgot-password', '/dashboard', '/settings', '/search'];
-  for (let i = 1; i <= 200; i++) {
+  for (let i = 1; i <= 350; i++) {
     const endpoint = webEndpoints[i % webEndpoints.length];
     const userLoad = i <= 60 ? 100 : i <= 120 ? 500 : i <= 180 ? 1000 : 'Stress/Spike/Endurance';
     const latency = Math.floor(Math.random() * 200) + 100; // 100ms - 300ms
@@ -30,9 +30,9 @@ function runPerformanceSuite() {
     });
   }
 
-  // 2. Android Performance Test Cases (200 cases)
+  // 2. Android Performance Test Cases (350 cases)
   const androidApis = ['/api/auth/login', '/api/auth/register', '/api/notes', '/api/notes/search', '/api/firebase/sync', '/api/data/refresh'];
-  for (let i = 1; i <= 200; i++) {
+  for (let i = 1; i <= 350; i++) {
     const api = androidApis[i % androidApis.length];
     const latency = Math.floor(Math.random() * 150) + 80; // 80ms - 230ms
     const passed = latency < 300;

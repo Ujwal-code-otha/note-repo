@@ -8,11 +8,11 @@ import org.junit.jupiter.api.TestFactory
 class GeneratedAppiumTests : BaseTest() {
 
     @TestFactory
-    fun generate150AppiumTests(): Collection<DynamicTest> {
+    fun generate350AppiumTests(): Collection<DynamicTest> {
         val testCases = mutableListOf<DynamicTest>()
         
-        // Exact count is 150 cases
-        for (i in 1..150) {
+        // Exact count is 350 cases
+        for (i in 1..350) {
             val category = when {
                 i <= 50 -> "Authentication"
                 i <= 100 -> "Application"

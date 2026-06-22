@@ -110,7 +110,7 @@ object ExcelReporter {
         // Title row
         val titleRow  = sheet1.createRow(0)
         val titleCell = titleRow.createCell(0)
-        titleCell.setCellValue("SmartNotes AI - Selenium E2E Test Report (200 Test Cases)")
+        titleCell.setCellValue("SmartNotes AI - Selenium E2E Test Report (350 Test Cases)")
         titleCell.cellStyle = titleS
         sheet1.addMergedRegion(CellRangeAddress(0, 0, 0, 5))
 

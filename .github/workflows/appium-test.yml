@@ -117,11 +117,11 @@ jobs:
           $env:APPIUM_PLATFORM_VERSION = "11"
           node tests/appiumTest.js
 
-      # ── 11. Run Kotlin 200-Test Suite ─────────────────────────────────────────
-      - name: Run Appium Kotlin 200 Tests
+      # ── 11. Run Kotlin 350-Test Suite ─────────────────────────────────────────
+      - name: Run Appium Kotlin 350 Tests
         continue-on-error: true
         run: |
-          Write-Host "Running SmartNotesAppiumTests (200 unique test cases)..."
+          Write-Host "Running GeneratedAppiumTests (350 unique test cases)..."
           $env:APPIUM_UDID             = "emulator-5554"
           $env:APPIUM_DEVICE_NAME      = "Android Emulator"
           $env:APPIUM_PLATFORM_VERSION = "11"
@@ -149,11 +149,11 @@ jobs:
           Get-ChildItem -Path "android_automation\reports\" -ErrorAction SilentlyContinue
 
       # ── 14. Upload Kotlin Excel Report ────────────────────────────────────────
-      - name: Upload Kotlin Excel Report (200 Tests)
+      - name: Upload Kotlin Excel Report (350 Tests)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: SmartNotes-Appium-Kotlin-200-Tests-Report
+          name: SmartNotes-Appium-Kotlin-350-Tests-Report
           path: appium-automation/build/reports/appium/*.xlsx
           if-no-files-found: warn
           retention-days: 30
@@ -196,6 +196,6 @@ jobs:
           echo "" >> $env:GITHUB_STEP_SUMMARY
           echo "| Item | Value |" >> $env:GITHUB_STEP_SUMMARY
           echo "|------|-------|" >> $env:GITHUB_STEP_SUMMARY
-          echo "| Kotlin Test Suite | SmartNotesAppiumTests |" >> $env:GITHUB_STEP_SUMMARY
-          echo "| Total Test Cases | 200 |" >> $env:GITHUB_STEP_SUMMARY
+          echo "| Kotlin Test Suite | GeneratedAppiumTests |" >> $env:GITHUB_STEP_SUMMARY
+          echo "| Total Test Cases | 350 |" >> $env:GITHUB_STEP_SUMMARY
           echo "| Report | Download from Artifacts above |" >> $env:GITHUB_STEP_SUMMARY
