@@ -1,0 +1,48 @@
+name: Generate Test Cases Excel Reports
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate-reports:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: pip install openpyxl
+
+      - name: Generate CSV/Excel Reports
+        run: python generate_test_cases_excel.py
+
+      - name: Upload Appium Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Appium-Test-Cases-Excel
+          path: appium_350_test_cases.xlsx
+          retention-days: 30
+
+      - name: Upload Selenium Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Selenium-Test-Cases-Excel
+          path: selenium_350_test_cases.xlsx
+          retention-days: 30
+
+      - name: Upload Load Test Excel Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Load-Test-Cases-Excel
+          path: load_test_350_test_cases.xlsx
+          retention-days: 30
