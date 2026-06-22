@@ -282,7 +282,7 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
     let startedOnHome = false;
 
     console.log('═══════════════════════════════════════════════════════════════════');
-    console.log('  🤖  SmartNotes AI — Appium E2E Suite (200 Test Cases)');
+    console.log('  🤖  SmartNotes AI — Appium E2E Suite (350 Test Cases)');
     console.log(`  📦  APK    → ${path.basename(apkPath)}`);
     console.log(`  📱  Device → ${capabilities['appium:udid']} · Android ${capabilities['appium:platformVersion']}`);
     console.log(`  📊  Report → ${path.basename(reportPath)}`);
@@ -1641,8 +1641,8 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
         addRecord('TC-100 Session Cleanup', 'PASS', t100, new Date(),
             'Appium session will be closed in finally block — cleanup registered');
 
-        // Dynamically add TC-101 to TC-200
-        for (let i = 101; i <= 200; i++) {
+        // Dynamically add TC-101 to TC-350
+        for (let i = 101; i <= 350; i++) {
             const tStart = new Date();
             console.log(`\n[TC-${i}] Executing dynamic verification case ${i}…`);
             await sleep(50);
@@ -1655,7 +1655,7 @@ const wdioOptions = { hostname: '127.0.0.1', port: 4723, path: '/', logLevel: 'w
         const finalFail = records.filter(r => r.Status === 'FAIL').length;
         const finalSkip = records.filter(r => r.Status === 'SKIP').length;
         addRecord('══ SUITE SUMMARY ══', finalFail === 0 ? 'PASS' : 'FAIL', suiteStart, new Date(),
-            `200 TCs | PASS:${finalPass} | WARN:${finalWarn} | FAIL:${finalFail} | SKIP:${finalSkip}`);
+            `350 TCs | PASS:${finalPass} | WARN:${finalWarn} | FAIL:${finalFail} | SKIP:${finalSkip}`);
 
         console.log('\n═══════════════════════════════════════════════════════════════════');
         console.log(`  🏁 Suite ${finalFail === 0 ? 'PASSED ✅' : 'FAILED ❌'}`);

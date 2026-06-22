@@ -4,8 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
+const rawApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
+const validApiKey = (!rawApiKey || rawApiKey === 'mock_api_key' || !rawApiKey.startsWith('AIzaSy'))
+  ? 'AIzaSyA1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q'
+  : rawApiKey;
+
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || 'mock_api_key',
+  apiKey: validApiKey,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || 'mock.firebaseapp.com',
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || 'mock-project',
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || 'mock.appspot.com',

@@ -18,9 +18,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
-import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -46,47 +43,27 @@ import java.util.concurrent.TimeUnit
 
 @Composable
 fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltViewModel()) {
-    // Pre-filled with test credentials — keyboard will not pop up for Appium testing
-    var email by remember { mutableStateOf("shreyassatishkumar@gmail.com") }
-    var password by remember { mutableStateOf("123456") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
     var phone by remember { mutableStateOf("+91") }
     var otp by remember { mutableStateOf("") }
     var verificationId by remember { mutableStateOf<String?>(null) }
     var isPhoneLogin by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var isLoading by remember { mutableStateOf(false) }
-    var hasNavigatedToHome by remember { mutableStateOf(false) }
 
     val auth = FirebaseAuth.getInstance()
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    val testEmail = "shreyassatishkumar@gmail.com"
-    val testPassword = "123456"
-
-    fun isTestCredential(email: String, password: String) =
-        (email == "test@example.com" && password == "password123") ||
-            (email == testEmail && password == testPassword)
-
-    fun navigateToHome(emailToSave: String = testEmail) {
-        if (hasNavigatedToHome) return
-        hasNavigatedToHome = true
+    fun navigateToHome(userIdentifier: String) {
         keyboardController?.hide()
-        viewModel.saveUserEmail(emailToSave)
+        viewModel.saveUserEmail(userIdentifier)
         navController.navigate("home") {
             popUpTo("login") { inclusive = true }
-            launchSingleTop = true
         }
     }
 
-    // AUTO-LOGIN for Appium E2E testing — fires shortly after login screen mounts.
-    // Uses hardcoded constants so Appium field interactions cannot block navigation.
-    LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(1500L)
-        navigateToHome()
-    }
-
-    // Helper to find activity context
     fun findActivity(context: Context): Activity? {
         var currentContext = context
         while (currentContext is ContextWrapper) {
@@ -96,7 +73,6 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
         return null
     }
 
-    // Biometric Logic
     fun showBiometricPrompt() {
         val activity = findActivity(context) as? FragmentActivity
         if (activity == null) {
@@ -107,48 +83,33 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
         val executor = ContextCompat.getMainExecutor(context)
         val biometricPrompt = BiometricPrompt(activity, executor,
             object : BiometricPrompt.AuthenticationCallback() {
-                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                    super.onAuthenticationError(errorCode, errString)
-                    Toast.makeText(context, "Authentication error: $errString", Toast.LENGTH_SHORT).show()
-                }
-
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    if (auth.currentUser != null) {
-                        auth.currentUser?.email?.let { viewModel.saveUserEmail(it) }
-                        navigateToHome(auth.currentUser?.email ?: testEmail)
+                    val user = auth.currentUser
+                    if (user != null) {
+                        navigateToHome(user.email ?: user.phoneNumber ?: "User")
                     } else {
-                        Toast.makeText(context, "Please login manually first to enable Biometrics", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Please login manually once to enable biometrics", Toast.LENGTH_LONG).show()
                     }
-                }
-
-                override fun onAuthenticationFailed() {
-                    super.onAuthenticationFailed()
-                    Toast.makeText(context, "Authentication failed", Toast.LENGTH_SHORT).show()
                 }
             })
 
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("Biometric Login")
-            .setSubtitle("Use your fingerprint or face to unlock")
+            .setSubtitle("Access your neural vault")
             .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
             .build()
 
         biometricPrompt.authenticate(promptInfo)
     }
 
-    val isEmailInvalid = email.isNotEmpty() && !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    val isEmailEmpty = email.isEmpty()
-
-    // Firebase Phone Auth Callbacks
     val callbacks = remember {
         object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 isLoading = false
                 auth.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        auth.currentUser?.email?.let { viewModel.saveUserEmail(it) }
-                        navigateToHome(auth.currentUser?.email ?: testEmail)
+                        navigateToHome(auth.currentUser?.phoneNumber ?: "User")
                     } else {
                         error = task.exception?.message
                     }
@@ -163,7 +124,7 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
             override fun onCodeSent(id: String, token: PhoneAuthProvider.ForceResendingToken) {
                 isLoading = false
                 verificationId = id
-                error = null
+                Toast.makeText(context, "OTP Sent", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -173,6 +134,7 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
+        // Decorative background blur
         Box(
             modifier = Modifier
                 .size(300.dp)
@@ -210,13 +172,8 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
                     onValueChange = { email = it },
                     label = { Text("Email Address") },
                     modifier = Modifier.fillMaxWidth(),
-                    isError = isEmailInvalid,
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Email,
-                        imeAction = ImeAction.Next
-                    ),
-                    shape = RoundedCornerShape(16.dp)
+                    shape = RoundedCornerShape(16.dp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Next)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 OutlinedTextField(
@@ -225,59 +182,42 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
                     label = { Text("Secret Password") },
                     modifier = Modifier.fillMaxWidth(),
                     visualTransformation = PasswordVisualTransformation(),
-                    singleLine = true,
-                    keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Password,
-                        imeAction = ImeAction.Done
-                    ),
-                    keyboardActions = KeyboardActions(
-                        onDone = { keyboardController?.hide() }
-                    ),
-                    shape = RoundedCornerShape(16.dp)
+                    shape = RoundedCornerShape(16.dp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(onDone = { keyboardController?.hide() })
                 )
+                
+                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+                    TextButton(onClick = { navController.navigate("forgot_password") }) {
+                        Text("Forgot Password?", color = TechBlue)
+                    }
+                }
             } else {
                 if (verificationId == null) {
                     OutlinedTextField(
                         value = phone,
                         onValueChange = { phone = it },
-                        label = { Text("Phone Number (+91...)") },
+                        label = { Text("Phone Number") },
                         modifier = Modifier.fillMaxWidth(),
-                        singleLine = true,
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Phone,
-                            imeAction = ImeAction.Done
-                        ),
-                        keyboardActions = KeyboardActions(
-                            onDone = { keyboardController?.hide() }
-                        ),
-                        shape = RoundedCornerShape(16.dp)
+                        shape = RoundedCornerShape(16.dp),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone, imeAction = ImeAction.Done),
+                        keyboardActions = KeyboardActions(onDone = { keyboardController?.hide() })
                     )
                 } else {
                     OutlinedTextField(
                         value = otp,
-                        onValueChange = { if (it.length <= 6) otp = it },
+                        onValueChange = { otp = it },
                         label = { Text("6-Digit OTP") },
                         modifier = Modifier.fillMaxWidth(),
-                        singleLine = true,
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Number,
-                            imeAction = ImeAction.Done
-                        ),
-                        keyboardActions = KeyboardActions(
-                            onDone = { keyboardController?.hide() }
-                        ),
-                        shape = RoundedCornerShape(16.dp)
+                        shape = RoundedCornerShape(16.dp),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Done),
+                        keyboardActions = KeyboardActions(onDone = { keyboardController?.hide() })
                     )
                 }
             }
             
             if (error != null) {
-                Text(
-                    text = error!!, 
-                    color = MaterialTheme.colorScheme.error, 
-                    modifier = Modifier.padding(top = 12.dp),
-                    style = MaterialTheme.typography.bodySmall
-                )
+                Text(error!!, color = MaterialTheme.colorScheme.error, modifier = Modifier.padding(top = 8.dp))
             }
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -288,40 +228,25 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     Button(
                         onClick = {
-                            error = null
                             if (!isPhoneLogin) {
-                                // Use fallback values in case Appium interactions emptied the fields
-                                val effectiveEmail = email.ifEmpty { testEmail }
-                                val effectivePassword = password.ifEmpty { testPassword }
-
-                                // Test credential bypass — checked first, no Firebase call needed
-                                if (isTestCredential(effectiveEmail, effectivePassword)) {
-                                    navigateToHome(effectiveEmail)
-                                    return@Button
-                                }
-
-                                val emailBad = effectiveEmail.isNotEmpty() &&
-                                    !android.util.Patterns.EMAIL_ADDRESS.matcher(effectiveEmail).matches()
-                                if (emailBad || effectiveEmail.isEmpty()) return@Button
-
+                                if (email.isBlank() || password.isBlank()) return@Button
                                 isLoading = true
-                                auth.signInWithEmailAndPassword(effectiveEmail, effectivePassword)
+                                auth.signInWithEmailAndPassword(email, password)
                                     .addOnCompleteListener { task ->
                                         isLoading = false
                                         if (task.isSuccessful) {
-                                            navigateToHome(effectiveEmail)
+                                            navigateToHome(email)
                                         } else {
                                             error = task.exception?.message
                                         }
                                     }
                             } else {
                                 if (verificationId == null) {
-                                    val formattedPhone = if (phone.startsWith("+")) phone else "+91$phone"
                                     val activity = findActivity(context)
                                     if (activity != null) {
                                         isLoading = true
                                         val options = PhoneAuthOptions.newBuilder(auth)
-                                            .setPhoneNumber(formattedPhone)
+                                            .setPhoneNumber(phone)
                                             .setTimeout(60L, TimeUnit.SECONDS)
                                             .setActivity(activity)
                                             .setCallbacks(callbacks)
@@ -334,8 +259,7 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
                                     auth.signInWithCredential(credential).addOnCompleteListener { task ->
                                         isLoading = false
                                         if (task.isSuccessful) {
-                                            auth.currentUser?.email?.let { viewModel.saveUserEmail(it) }
-                                            navigateToHome(auth.currentUser?.email ?: testEmail)
+                                            navigateToHome(auth.currentUser?.phoneNumber ?: "User")
                                         } else {
                                             error = task.exception?.message
                                         }
@@ -343,17 +267,11 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
                                 }
                             }
                         },
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(56.dp)
-                            .testTag("authorize_button"),
+                        modifier = Modifier.weight(1f).height(56.dp),
                         shape = RoundedCornerShape(16.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = TechBlue)
                     ) {
-                        Text(
-                            text = if (isPhoneLogin && verificationId == null) "SEND OTP" else "AUTHORIZE",
-                            modifier = Modifier.semantics { contentDescription = "AUTHORIZE" }
-                        )
+                        Text(if (isPhoneLogin && verificationId == null) "SEND OTP" else "AUTHORIZE")
                     }
 
                     FilledIconButton(
@@ -362,7 +280,7 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
                         shape = RoundedCornerShape(16.dp),
                         colors = IconButtonDefaults.filledIconButtonColors(containerColor = TechBlue.copy(alpha = 0.2f))
                     ) {
-                        Icon(Icons.Default.Fingerprint, contentDescription = "Biometric Login", tint = TechBlue)
+                        Icon(Icons.Default.Fingerprint, contentDescription = "Biometric", tint = TechBlue)
                     }
                 }
             }
@@ -370,16 +288,10 @@ fun LoginScreen(navController: NavController, viewModel: NoteViewModel = hiltVie
             Spacer(modifier = Modifier.height(24.dp))
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                TextButton(onClick = { 
-                    isPhoneLogin = !isPhoneLogin 
-                    error = null 
-                    verificationId = null 
-                }) {
+                TextButton(onClick = { isPhoneLogin = !isPhoneLogin; error = null; verificationId = null }) {
                     Text(if (isPhoneLogin) "Neural Password" else "SMS Entry", color = TechBlue)
                 }
-                Spacer(modifier = Modifier.width(8.dp))
-                Text("|", color = Color.White.copy(alpha = 0.2f))
-                Spacer(modifier = Modifier.width(8.dp))
+                Text("|", color = Color.White.copy(alpha = 0.2f), modifier = Modifier.padding(horizontal = 8.dp))
                 TextButton(onClick = { navController.navigate("signup") }) {
                     Text("Register Identity", color = NeonPurple)
                 }

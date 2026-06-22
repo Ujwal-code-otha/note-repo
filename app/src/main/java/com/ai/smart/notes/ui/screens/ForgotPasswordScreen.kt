@@ -25,6 +25,8 @@ import androidx.navigation.NavController
 import com.ai.smart.notes.ui.theme.NeonPurple
 import com.ai.smart.notes.ui.theme.TechBlue
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FieldValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +34,7 @@ fun ForgotPasswordScreen(navController: NavController) {
     var email by remember { mutableStateOf("") }
     var isLoading by remember { mutableStateOf(false) }
     val auth = FirebaseAuth.getInstance()
+    val db = FirebaseFirestore.getInstance()
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -79,7 +82,7 @@ fun ForgotPasswordScreen(navController: NavController) {
                 )
                 
                 Text(
-                    text = "Enter your email to receive recovery protocols",
+                    text = "Enter your email to receive recovery protocols via Cloud Sync",
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.White.copy(alpha = 0.6f),
                     modifier = Modifier.padding(top = 8.dp)
@@ -114,15 +117,32 @@ fun ForgotPasswordScreen(navController: NavController) {
                         onClick = {
                             if (email.isNotBlank()) {
                                 isLoading = true
-                                auth.sendPasswordResetEmail(email)
-                                    .addOnCompleteListener { task ->
+                                
+                                // Step 1: Log recovery request to Firestore
+                                val recoveryData = hashMapOf(
+                                    "email" to email,
+                                    "requestedAt" to FieldValue.serverTimestamp(),
+                                    "status" to "pending"
+                                )
+                                
+                                db.collection("password_resets")
+                                    .add(recoveryData)
+                                    .addOnSuccessListener {
+                                        // Step 2: Trigger Auth recovery email
+                                        auth.sendPasswordResetEmail(email)
+                                            .addOnCompleteListener { task ->
+                                                isLoading = false
+                                                if (task.isSuccessful) {
+                                                    Toast.makeText(context, "Recovery protocols initiated for $email", Toast.LENGTH_LONG).show()
+                                                    navController.popBackStack()
+                                                } else {
+                                                    Toast.makeText(context, "Auth Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                                                }
+                                            }
+                                    }
+                                    .addOnFailureListener { e ->
                                         isLoading = false
-                                        if (task.isSuccessful) {
-                                            Toast.makeText(context, "Recovery link sent to $email", Toast.LENGTH_LONG).show()
-                                            navController.popBackStack()
-                                        } else {
-                                            Toast.makeText(context, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                                        }
+                                        Toast.makeText(context, "Firestore Sync Failed: ${e.message}", Toast.LENGTH_SHORT).show()
                                     }
                             }
                         },

@@ -19,6 +19,14 @@ const getAIModel = () => {
   }
 };
 
+export const CHAT_MODES = {
+  EXPLAIN: "Explain Concept",
+  SUMMARIZE: "Summarize Text",
+  QUIZ: "Generate Quiz",
+  CODE: "Code Review",
+  TRANSLATE: "Translate"
+};
+
 export const aiService = {
   translate: async (content, targetLang = "Tamil") => {
     try {

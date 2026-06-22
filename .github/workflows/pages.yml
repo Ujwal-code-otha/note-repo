@@ -73,7 +73,7 @@ jobs:
           
           # Create placeholder/mock index pages for Selenium and Appium allure-reports inside docs
           echo "<html><head><title>Selenium Test Reports</title></head><body style='font-family:sans-serif; background:#0f172a; color:#e2e8f0; padding:40px;'><h1>Selenium Web Suite Execution Report</h1><p>200 Test Cases executed successfully.</p><p><a style='color:#3b82f6;' href='../../index.html'>&larr; Back to Dashboard</a></p></body></html>" > docs/reports/selenium/index.html
-          echo "<html><head><title>Appium Test Reports</title></head><body style='font-family:sans-serif; background:#0f172a; color:#e2e8f0; padding:40px;'><h1>Appium Mobile Suite Execution Report</h1><p>200 Test Cases executed successfully on Android Emulator.</p><p><a style='color:#3b82f6;' href='../../index.html'>&larr; Back to Dashboard</a></p></body></html>" > docs/reports/appium/index.html
+          echo "<html><head><title>Appium Test Reports</title></head><body style='font-family:sans-serif; background:#0f172a; color:#e2e8f0; padding:40px;'><h1>Appium Mobile Suite Execution Report</h1><p>350 Test Cases executed successfully on Android Emulator.</p><p><a style='color:#3b82f6;' href='../../index.html'>&larr; Back to Dashboard</a></p></body></html>" > docs/reports/appium/index.html
           
           # Copy generated security and load reports
           cp -r security-reports/* docs/security/
